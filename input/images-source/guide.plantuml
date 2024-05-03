@@ -1,0 +1,48 @@
+@startuml
+
+:Domain Expert: as de
+:Standards Expert/\nComputer Scientist: as se
+:FHIR Expert: as fe
+:Vendor: as vendor
+
+cloud "Mindmap" as mm
+
+artifact "Information Model" as im {
+    component "Class(es) and their relationships"
+}
+artifact "Data Set" as ds {
+    file "Data Set"
+}
+
+artifact "Profile (Hierarchy)" as prof {
+    component "Profile(s)"
+}
+
+artifact "Use Case" as uc {
+    storage "Use Case"
+}
+
+de -[#red]down-> mm : collect ideas \nand \ndomain knowledge
+
+mm -[#red]right-> im : formalize
+im -[#red]down-> ds
+ds -[#red]right-> prof
+
+se --> im
+fe --> prof
+
+uc <.left.> im
+uc ..> ds
+
+database "Data Model" as dm
+hexagon "Application" as app
+
+vendor -right-> dm : creates for his application
+im --> dm : influences
+vendor -right-> app : develops
+app -up-> dm : uses
+mm .[hidden]down. vendor
+
+app .right... prof : conformant?
+
+@enduml

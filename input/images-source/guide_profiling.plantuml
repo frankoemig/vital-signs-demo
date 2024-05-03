@@ -1,0 +1,16 @@
+@startuml
+
+
+file "Data Set" as ds 
+
+file "FHIR Profile Hierarchy" as fhir
+file "CDA Templates" as cda
+file "v2.x OBX Profiles + segment group" as v2x
+file "Other Standards" as other
+
+ds --> fhir : derive
+ds --> cda : derive
+ds --> v2x : derive
+ds --> other : derive
+
+@enduml

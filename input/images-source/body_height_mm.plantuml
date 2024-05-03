@@ -1,0 +1,37 @@
+@startmindmap
+
+skinparam svgDimensionStyle false
+
+title Body Height
+
++ **Body Height**
+--[#fcc] measurement
+---[#fcc] value
+----[#cff] DT: integer
+----[#fcc] unit
+-----_ cm
+---[#fcc] reference range
+----[#fcc] low
+----[#fcc] high
+----[#fcc] age
+---[#fcc] interpretation
+
+++[#ff8] administrative
++++[#fcc] identifier
++++[#fcc] dateTime
+++++[#cff] DT: instant
++++[#fcc] encounter
+
++++[#88f] involved persons
+++++[#88f] subject
+++++[#88f] author
+++++[#88f] performer
+
+++[#ff8] protocol
++++[#ff8] measuring
+++++[#cff] DT: code
++++[#ff8] shoes
+++++[#cff] DT: boolean
+++[#ff8] comment
+
+@endmindmap

@@ -1,0 +1,108 @@
+@startmindmap
+
+skinparam svgDimensionStyle false
+
+title Blood Pressure related Concepts
+
++ **Blood** \n**Pressure**
+--[#ff8] value
+---[#fcc] systolic
+----[#cff] DT: integer
+-----_ range: 0-1000
+----[#fcc] reference range
+-----_ range: 0-1000
+-----_ age: integer
+---[#fcc] diastolic
+----[#cff] DT: integer
+-----_ range: 0-1000
+-----_ age: integer
+----[#fcc] reference range
+-----_ range: 0-1000
+---[#fcc] meanArterialPressure
+----[#cff] DT: integer
+-----_ range: 0-1000
+---- duration
+-----[#cff] DT: code
+------_ 1h
+------_ 8h
+------_ 10h
+------_ 12h
+------_ 24h
+---- calculation
+-----[#cff] DT: code
+------_ ballanced
+------_ algorithm
+---[#fcc] pulsePressure
+----[#cff] DT: integer
+-----_ range: 0-1000
+---[#fcc] duration of measurement
+----[#cff] DT: code
+-----_ spot
+-----_ 1h
+-----_ 8h
+-----_ 10h
+-----_ 12h
+-----_ 24h
+---[#fcc] unit
+----[#cff] DT: code
+-----_ mmHg
+---[#fcc] reference range
+----_ age: integer
+---[#fcc] interpretation
+----[#cff] DT: code
+-----_ low
+-----_ normal
+-----_ high
+
+-- other relevant concepts
+--- medication
+----_ influences the results of the measurement
+--- body weight
+----_ relevant for a correct interpretation
+
+++[#ff8] administrative
++++[#fcc] identifier
++++[#fcc] dateTime
+++++[#cff] DT: instant | period
++++[#fcc] encounter
+
++++[#88f] involved persons
+++++[#88f] subject
+++++[#88f] author
+++++[#88f] performer
+
+++[#ff8] protocol
++++[#ff8] location
+++++[#cff] DT: code
++++++_ arm
++++++_ wrist
++++++_ ankle
++++++_ finger
++++++_ toe
++++[#ff8] position
+++++[#cff] DT: code
++++++_ sitting
++++++_ standing
++++++_ reclining
++++++_ lying
+++++++_ lying on back
+++++++_ lying with tilt to left
++++[#ff8] tilt (degree)
+++++[#cff] DT: integer
++++[#ff8] method
+++++[#cff] DT: code
++++[#ff8] exertion
+++++[#cff] DT: code
++++[#ff8] cuff type
+++++[#cff] DT: code
++++[#ff8] cuff size
+++++[#cff] DT: integer
++++[#ff8] sleeping status
+++++[#cff] DT: code
++++++_ awake
++++++_ sleeping
+
+++[#ff8] comment
++++[#cff] DT: text
+
+@endmindmap

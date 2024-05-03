@@ -1,0 +1,25 @@
+@startuml
+
+file "Base Standard/Profile" as base
+
+file "Annotation Profile" as annot
+
+file "Basic Support Profile" as support1
+file "Specific Support Profile" as support2
+
+file "Obligations" as oblig1
+file "Obligations" as oblig2
+
+file "xx Language Support" as lang
+
+base --> annot : specify semantics
+annot --> support1 : add base requirements
+annot --> lang : tags for language xx
+
+support1 --> support2 : add use-case specific requirements
+support1 -left-> oblig1
+
+support2 -left-> oblig2
+oblig1 -[hidden]down- oblig2
+
+@enduml

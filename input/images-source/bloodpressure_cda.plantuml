@@ -1,0 +1,164 @@
+@startuml
+
+skinparam svgDimensionStyle false
+
+title Blood Pressure represented as CDA template
+
+
+skinparam class {
+'BackgroundColor #ff9999 'PaleGreen
+'ArrowColor #ff9999 'SeaGreen
+'BorderColor SpringGreen
+BackgroundColor<<Foo>> #ff9999
+BackgroundColor<<Foo2>> #ffbbbb
+BackgroundColor<<Foo3>> #59b8e9
+BackgroundColor<<Foo4>> #f5f440
+BackgroundColor<<Foo5>> #80f540
+'BorderColor<<Foo>> Tomato
+}
+
+class "**Blood Pressure Observation**"  as bp <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    id: II
+    code = $LOINC#85354-9
+    effectiveTime: IVL<TS>
+    text: ED
+    statusCode: CNE <= ActStatus
+    interpretation'Code: CE
+    methodCode: CE
+    targetSiteCode: CWE
+}
+
+class "ReferenceRange" as rr <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    value
+}
+
+class "ReferenceRange" as rr2 <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    code = $LOINC
+    value
+}
+
+class "ReferenceRange" as rr3 <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    value
+}
+
+class "observationRange" as or <<Foo2>> {
+    typeCode = REFV
+}
+
+class "observationRange" as or2 <<Foo2>> {
+    typeCode = REFV
+}
+
+class "observationRange" as or3 <<Foo2>> {
+    typeCode = REFV
+}
+
+class "systolic BP" as syst <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    code = $LOINC#8480-6
+    value: PQ
+    interpretationCode
+}
+
+class "diastolic BP" as diast <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    code = $LOINC#8462-4
+    value: PQ
+    interpretationCode
+}
+
+class "Exertion" as exer <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    code = #exertion
+    value: NM
+}
+
+class "Position" as pos <<Foo>> {
+    classCode = OBS
+    moodCode = EVN
+    code = #position
+    value: CWE
+}
+
+class "component" as comp1 <<Foo2>> {
+    typeCode = COMP
+    contextConductionInd = true
+    separatableInd = false
+}
+
+class "component" as comp2 <<Foo2>> {
+    typeCode = COMP
+    contextConductionInd = true
+    separatableInd = false
+}
+
+class "component" as comp3 <<Foo2>> {
+    typeCode = COMP
+    contextConductionInd = true
+    separatableInd = false
+}
+
+class "component" as comp4 <<Foo2>> {
+    typeCode = COMP
+    contextConductionInd = true
+    separatableInd = false
+}
+
+class "Author" as author <<Foo3>> {
+    typeCode = AUTHOR
+}
+
+class "AssignedEntity" as ae <<Foo4>> {
+    classCode = ASSIGNED
+    code = AUTHOR
+    id: identifier
+    addr: address
+    telecom: telecom
+}
+
+class "Author" as pers <<Foo5>> {
+    classCode = PSN
+    determinerCode = INSTANCE
+    code: CWE
+    id: identifier
+    name: PN
+}
+
+bp --> rr
+(bp, rr) .. or 
+
+bp --> "1" syst
+(bp, syst) .. comp1
+
+bp --> "0..1" diast
+(bp, diast) .. comp2
+
+bp --> "0..1" exer
+(bp, exer) .. comp3
+
+bp --> "0..1" pos
+(bp, pos) .. comp4
+
+bp --> "0..1" ae
+(bp, ae) .. author
+
+ae -- pers : playingEntity >
+
+syst --> "0..1" rr2
+(syst, rr2) .. or2
+
+diast --> "0..1" rr3
+(diast, rr3) .. or3
+
+@enduml

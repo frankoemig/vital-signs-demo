@@ -1,0 +1,30 @@
+@startuml
+
+title Body Height
+
+class "[[StructureDefinition-BodyHeight.html Body Height]]" as bh {
+    value: integer
+    interpretation: code
+    measuring: code
+    shoes: boolean
+    withoutLegs: code
+    dateTime: instant
+}
+
+class "Subject" as pat
+class "Author" as aut
+class "Performer" as perf
+
+class "Reference Range" as rr {
+    low
+    high
+    age
+}
+
+bh -right- "1" pat
+bh -- "0..1" aut
+bh -- "0..1" perf 
+
+bh *-- "0..1" rr
+
+@enduml

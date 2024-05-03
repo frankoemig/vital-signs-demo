@@ -1,6 +1,6 @@
 # vital-signs-demo
 
-This is Demo IG for cross-paradigm cross-country specifications (using some vital signs as examples).
+This is Demo IG for **cross-paradigm cross-country specifications** (using some vital signs as examples).
 
 In order to demonstrate it, the following artifacts are used as an example:
 

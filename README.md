@@ -1,7 +1,8 @@
 # vital-signs-demo
+
 This is Demo IG for cross-paradigm cross-country specifications (using some vital signs as examples).
 
-As examples, the following artifacts are used:
+In order to demonstrate it, the following artifacts are used as an example:
 
 * blood pressure
 * body weight

@@ -1,3 +1,7 @@
+Alias: $loinc = http://loinc.org
+Alias: $v2code = http://vitals.oemig.de/fhir/CodeSystem/v2code
+
+
 // This is an abstract base to allow for further profiling into groups of segments
 
 Logical: AbstractSegment
@@ -78,9 +82,9 @@ Description: "v2 Profile: **Main Blood Pressure Measurement**"
 
 * seqNo = 1
 * valueDataType 1..1 MS
-* valueDataType = #NM
+* valueDataType = $v2code#NM
 * observationCode 1..1 MS
-* observationCode = #85354-9
+* observationCode = $loinc#85354-9
 
 
 Profile: OBXsystolicBP
@@ -94,9 +98,9 @@ Description: "v2 Profile: **Systolic** Blood Pressure"
 
 * seqNo = 2
 * valueDataType MS
-* valueDataType = #NM
+* valueDataType = $v2code#NM
 * observationCode MS
-* observationCode = #8480-6
+* observationCode = $loinc#8480-6
 * value MS
 
 
@@ -111,9 +115,9 @@ Description: "v2 Profile: **Diastolic** Blood Pressure"
 
 * seqNo = 3
 * valueDataType MS
-* valueDataType = #NM
+* valueDataType = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#NM
 * observationCode MS
-* observationCode = #8462-9
+* observationCode = $loinc#8482-2
 * value MS
 
 Profile: OBXmeanArterialBP
@@ -127,7 +131,7 @@ Description: "v2 Profile: **Mean Arterial** Blood Pressure"
 
 * valueDataType MS
 * observationCode MS
-* observationCode = #meanArterial
+* observationCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#meanArterial
 * value MS
 
 Profile: OBXpulsePressureBP
@@ -154,7 +158,7 @@ Description: "v2 Profile: **Exertion** to Blood Pressure Measurement"
 
 * valueDataType MS
 * observationCode MS
-* observationCode = #exertion
+* observationCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#exertion
 * value MS
 
 Profile: OBXlocation
@@ -167,9 +171,9 @@ Description: "v2 Profile: **Location of Blood Pressure Measurement**"
 * insert HeaderDetailRules
 
 * valueDataType MS
-* valueDataType = #CWE
+* valueDataType = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#CWE
 * observationCode MS
-* observationCode = #location
+* observationCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#location
 * value MS
 
 

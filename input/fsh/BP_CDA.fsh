@@ -1,3 +1,8 @@
+Alias: $loinc = http://loinc.org
+Alias: $v3classCode = http://terminology.hl7.org/CodeSystem/v3-ActClass
+Alias: $v3moodCode = http://terminology.hl7.org/CodeSystem/v3-ActMood
+Alias: $v3actRelType = http://terminology.hl7.org/CodeSystem/v3-ActRelationshipType
+
 Logical: CDAlm
 Parent: Base
 Id: CDAlm
@@ -10,23 +15,23 @@ Description: "This is a draft **LM for CDA**. (It still requires modifications c
 * insert HeaderDetailRules
 
 * classCode 1..1 CodeableConcept "class code"
-* classCode = #OBS
+* classCode = $v3classCode#OBS
 * moodCode 1..1 CodeableConcept "mood code"
-* moodCode = #EVN
+* moodCode = $v3moodCode#EVN
 
 * code 1..1 CodeableConcept "code"
-* code = #85354-9
+* code = $loinc#85354-9
 
 * value 0..1 SU integer "test value"
 
 * observationRange 0..1 BackboneElement "observation Range"
   * typeCode 1..1 CodeableConcept "type code"
-  * typeCode = #REFV
+  * typeCode = $v3actRelType#REFV
   * referenceRange 1..1 BackboneElement "reference range"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #OBS
+    * classCode = $v3classCode#OBS
     * moodCode 1..1 CodeableConcept "mood code"
-    * moodCode = #EVN
+    * moodCode = $v3moodCode#EVN
     * value 0..1 SU string "reference range values"
 
 * interpretation 0..1 SU CodeableConcept "interpretation code (OBX-8)"
@@ -34,11 +39,11 @@ Description: "This is a draft **LM for CDA**. (It still requires modifications c
 
 * component 1..* BackboneElement "component"
   * typeCode 1..1 CodeableConcept "type code"
-  * typeCode = #COMP
+  * typeCode = $v3actRelType#COMP
   * separatableInd 0..1 boolean "is this concept independent?"
   * systolicBP 0..1 SU BackboneElement "systolic blood pressure"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #8480-4
+    * classCode = $loinc#8480-6
     * value 0..* integer "observed/measured value"
     * unit 0..* CodeableConcept "units"
     * component 1..* BackboneElement "component"
@@ -49,7 +54,7 @@ Description: "This is a draft **LM for CDA**. (It still requires modifications c
 
   * diastolicBP 0..1 SU BackboneElement "diastolic blood pressure"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #8482-0
+    * classCode = $loinc#8482-2
     * value 0..* integer "observed/measured value"
     * unit 0..* CodeableConcept "units"
     * referenceRange 0..1 CodeableConcept "reference range for values"
@@ -71,19 +76,19 @@ Description: "This is a draft **LM for CDA**. (It still requires modifications c
 
   * exertion 0..1 BackboneElement "exertion during measurement"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #exertion
+    * classCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#exertion
     * value 0..* CodeableConcept "exertion during measurement"
     * value from http://vitals.oemig.de/fhir/ValueSet/Exertion (required)
 
   * location 0..1 BackboneElement "location of measurement"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #location
+    * classCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#location
     * value 0..* CodeableConcept "exertion during measurement"
     * value from http://vitals.oemig.de/fhir/ValueSet/Location (required)
 
   * sleepingStatus 0..1 CodeableConcept "sleeping status during measurement"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = #sleepingStatus
+    * classCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#sleepingStatus
     * value 0..* CodeableConcept "exertion during measurement"
     * value from http://vitals.oemig.de/fhir/ValueSet/SleepingStatus (required)
 

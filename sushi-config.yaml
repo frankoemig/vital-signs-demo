@@ -9,7 +9,7 @@ name: Vital-signs
 title: Vital Signs Multi-Country Cross-Paradigm IG
 description: Multi-Country, cross-paradigm Implementation Guide for Vital Signs
 status: draft # draft | active | retired | unknown
-version: 0.1.0
+version: 0.1.1
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -24,8 +24,9 @@ publisher:
 # package id and the value is the version (or dev/current). For advanced
 # use cases, the value can be an object with keys for id, uri, and version.
 #
-# dependencies:
-#   hl7.fhir.us.core: 3.1.0
+#dependencies:
+#  hl7.fhir.us.core: current
+#  hl7.fhir.us.vitals: current
 #   hl7.fhir.us.mcode:
 #     id: mcode
 #     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
@@ -205,6 +206,17 @@ groups:
     description: The following models are used with HL7 V3/CDA. Unfortunately, they are not yet worked out.
     resources:
     - StructureDefinition/CDAlm
+  GroupE:
+    name: FHIR Profiles (old/current)
+    description: The FHIR profiles are in current use and requires modification.
+    resources:
+    - StructureDefinition/IsikBloodPressure
+    - StructureDefinition/us-core-blood-pressure
+  GroupF:
+    name: FHIR Profiles (new)
+    description: The proposals for (new(/updated) FHIR profiles.
+    resources:
+    - StructureDefinition/us-core-modified-blood-pressure
 
 
 # The ImplementationGuide resource defines several other properties

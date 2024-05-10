@@ -18,7 +18,7 @@ Description: "**Observation Codes** (for temporary use only; to be replaced late
 * #exertion "extertion"
 * #location "location"
 * #position "position"
-* #sleepingStatus "sleeping status"
+* #sleepStatus "sleep status"
 * #meanArterial "mean arterial pressure"
 
 //for convenience (for the moment, to be replaced later)

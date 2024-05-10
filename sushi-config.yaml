@@ -9,7 +9,7 @@ name: Vital-signs
 title: Vital Signs Multi-Country Cross-Paradigm IG
 description: Multi-Country, cross-paradigm Implementation Guide for Vital Signs
 status: draft # draft | active | retired | unknown
-version: 0.1.1
+version: 0.1.2
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -217,7 +217,7 @@ groups:
     description: The proposals for (new(/updated) FHIR profiles.
     resources:
     - StructureDefinition/us-core-modified-blood-pressure
-
+    - StructureDefinition/us-core-modified-vital-signs
 
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

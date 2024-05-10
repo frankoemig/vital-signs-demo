@@ -49,3 +49,14 @@ This way, all artifacts are considered with the same relationship to each other.
 <div width="400px">
 {% include guide_profiling.svg %}
 </div>
+
+### Overall Process
+
+The details collected within a mindmap has to be transformed and taken over into the next subsequent model.
+The following drawing illustrates that:
+
+![Process](process.png){:width="600px"}
+<br clear="all"/>  
+
+After all, it has to be verified that no detail is lost. Also, it must be ensured that specific relationships,
+esp. the mininum cardinality has been correctly represented in the next model.

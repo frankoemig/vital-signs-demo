@@ -52,7 +52,7 @@ Description: "LM for **Blood Pressure**"
 * location 0..1 CodeableConcept "body location of measurement"
 * location from http://vitals.oemig.de/fhir/ValueSet/Location (required)
 * sleepingStatus 0..1 CodeableConcept "sleeping status"
-* sleepingStatus from http://vitals.oemig.de/fhir/ValueSet/SleepingStatus (required)
+* sleepingStatus from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
 * exertion[x] 0..1 integer or CodeableConcept "physical activity (in Watts or as codes)" 
 
 * method 0..1 CodeableConcept "measurement method"
@@ -158,18 +158,18 @@ Description: "**Cuff Size**"
 
 
 
-CodeSystem: SleepingStatus
-Id: SleepingStatus
-Title: "Sleeping Status"
-Description: "**Sleeping Status**"
+CodeSystem: SleepStatus
+Id: SleepStatus
+Title: "Sleep Status"
+Description: "**Sleep Status**"
 
-* ^url = "http://vitals.oemig.de/fhir/CodeSystem/SleepingStatus"
+* ^url = "http://vitals.oemig.de/fhir/CodeSystem/SleepStatus"
 * ^version = "0.1.0"
 
 * insert HeaderDetailRules
 
 * ^caseSensitive = false
-* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/SleepingStatus"
+* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/SleepStatus"
 * ^hierarchyMeaning = #is-a
 * ^compositional = false
 * ^versionNeeded = false
@@ -179,17 +179,17 @@ Description: "**Sleeping Status**"
 * #sleepibg "The patient sleeps"
 
 
-ValueSet: SleepingStatus
-Id: SleepingStatus
-Title: "Sleeping Status"
-Description: "**Sleeping Status**"
+ValueSet: SleepStatus
+Id: SleepStatus
+Title: "Sleep Status"
+Description: "**Sleep Status**"
 
-* ^url = "http://vitals.oemig.de/fhir/ValueSet/SleepingStatus"
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/SleepStatus"
 * ^version = "0.1.0"
 
 * insert HeaderDetailRules
 
-* include codes from system http://vitals.oemig.de/fhir/CodeSystem/SleepingStatus
+* include codes from system http://vitals.oemig.de/fhir/CodeSystem/SleepStatus
 
 
 
@@ -235,8 +235,34 @@ Description: "**Position**"
 * include codes from system http://vitals.oemig.de/fhir/CodeSystem/Position
 
 
+ValueSet: BodyPosition
+Id: BodyPosition
+Title: "Body Position"
+Description: "**Position of the Body** during measurement"
 
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/BodyPosition"
+* ^version = "0.1.0"
 
+* insert HeaderDetailRules
+
+//* include codes from system http://vitals.oemig.de/fhir/CodeSystem/Position
+//* include codes from system http://snomed.info/sct
+
+* ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/Position"
+* ^compose.include[+].system = "http://snomed.info/sct"
+* ^compose.include[=].concept[+].code = #3021006
+* ^compose.include[=].concept[+].code = #26527006
+* ^compose.include[=].concept[+].code = #102536004
+* ^compose.include[=].concept[+].code = #414585002
+* ^compose.include[=].concept[+].code = #10904000
+* ^compose.include[=].concept[+].code = #1240000
+* ^compose.include[=].concept[+].code = #102538003
+* ^compose.include[=].concept[+].code = #423413008
+* ^compose.include[=].concept[+].code = #102535000
+* ^compose.include[=].concept[+].code = #415346000
+* ^compose.include[=].concept[+].code = #33586001
+* ^compose.include[=].concept[+].code = #40199007
+* ^compose.include[=].concept[+].code = #34106002
 
 
 

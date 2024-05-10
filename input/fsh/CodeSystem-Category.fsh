@@ -32,6 +32,8 @@ Description: "**Observation Category**"
   * #vital-sign-bmi "BMI" "body mass index"
 * #social-history "social history"
 
+
+
 ValueSet: ObservationCategory
 Id: ObservationCategory
 Title: "Observation Category"
@@ -44,6 +46,19 @@ Description: "**Observation Category**"
 
 * include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory
 
+
+
+ValueSet: ObservationVitalSignsCategory
+Id: ObservationVitalSignsCategory
+Title: "Observation Vital Signs Category"
+Description: "**Observation Vital Signs Category**"
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/ObservationVitalSignsCategory"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory where code descendent-of #vital-sign
 
 
 

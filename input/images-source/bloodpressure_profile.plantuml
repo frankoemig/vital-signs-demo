@@ -58,7 +58,7 @@ class "extension: exertion" as ex {
 class "extension: position" as pos {
     code: code
 }
-class "extension: sleepingStatus" as sleep {
+class "extension: consciousness" as conscious {
     code: code
 }
 class "extension: cuffType" as cType {
@@ -74,7 +74,7 @@ bp *-left- "0..1" mabp
 bp *-left- "0..1" pbp
 bp *-- "0..1" ex
 bp *-- "0..1" pos
-bp *-- "0..1" sleep
+bp *-- "0..1" conscious
 bp *-- "0..1" cType
 bp *-- "0..1" cSize
 

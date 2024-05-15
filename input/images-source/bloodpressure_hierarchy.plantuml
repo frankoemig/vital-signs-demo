@@ -15,6 +15,7 @@ class "**Blood Pressure**" as bp {
     pulseBP: positiveInt
     exertion: quantity
     position: code
+    consciousness: code
     interpretation: code
     ...
 }

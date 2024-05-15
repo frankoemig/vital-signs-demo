@@ -9,7 +9,7 @@ class "**[[StructureDefinition-BloodPressure.html Blood Pressure]]**" as bp {
     exertion: code|quantity
     cuffType: code
     cuffSize: code
-    sleepingStatus: code
+    consciousness: code
     tilt: integer
     cuffType: code
     cuffSize: code

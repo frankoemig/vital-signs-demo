@@ -19,6 +19,8 @@ Description: "This is the Logical Model for **Blood Pressure**"
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
   * interpretation 0..1 CodeableConcept "interpretation"
+  * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
+  * range 0..1 CodeableConcept "reference range"
 
 * diastolicPressure 0..1 SU BackboneElement "diastolic blood pressure" "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -28,6 +30,8 @@ Description: "This is the Logical Model for **Blood Pressure**"
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
   * interpretation 0..1 CodeableConcept "interpretation"
+  * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
+  * range 0..1 CodeableConcept "reference range"
 
 * meanArterialPressure 0..1 BackboneElement "mean arterial blood pressure" "The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -37,6 +41,8 @@ Description: "This is the Logical Model for **Blood Pressure**"
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
   * interpretation 0..1 CodeableConcept "interpretation"
+  * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
+  * range 0..1 CodeableConcept "reference range"
 
 * pulsePressure 0..1 BackboneElement "pulse blood pressure" "The difference between the systolic and diastolic pressure."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -46,21 +52,31 @@ Description: "This is the Logical Model for **Blood Pressure**"
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
   * interpretation 0..1 CodeableConcept "interpretation"
+  * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
+  * range 0..1 CodeableConcept "reference range"
 
 * interpretation 0..1 SU CodeableConcept "overall clinical meaning of the BP measurement"
+* interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
+
+* range 0..1 CodeableConcept "reference range"
 
 * effective[x] 0..1 SU date or instant or Period "date of observation" "different representations"
 
 * cuffType 0..1 CodeableConcept "type of cuff used (eg. rusable, disposable)"
 * cuffType from http://vitals.oemig.de/fhir/ValueSet/CuffType (required)
+
 * cuffSize 0..1 CodeableConcept "size of cuff (eg. adult, child)"
 * cuffSize from http://vitals.oemig.de/fhir/ValueSet/CuffSize (required)
+
 * position 0..1 CodeableConcept "position for measurement"
 * position from http://vitals.oemig.de/fhir/ValueSet/Position (required)
+
 * location 0..1 CodeableConcept "body location of measurement"
 * location from http://vitals.oemig.de/fhir/ValueSet/Location (required)
-* sleepingStatus 0..1 CodeableConcept "sleeping status"
-* sleepingStatus from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
+
+* consciousness 0..1 CodeableConcept "Consciousness of the patient"
+* consciousness from http://vitals.oemig.de/fhir/ValueSet/Consciousness (required)
+
 * exertion[x] 0..1 integer or CodeableConcept "physical activity (measured in Watts or as coded information)" 
 
 * bodyWeight 0..1 BodyWeight "body weight"
@@ -172,38 +188,39 @@ Description: "**Cuff Size**"
 
 
 
-CodeSystem: SleepStatus
-Id: SleepStatus
-Title: "Sleep Status"
-Description: "**Sleep Status**"
+CodeSystem: Consciousness
+Id: Consciousness
+Title: "Consciousness"
+Description: "**Consciousness**"
 
-* ^url = "http://vitals.oemig.de/fhir/CodeSystem/SleepStatus"
+* ^url = "http://vitals.oemig.de/fhir/CodeSystem/Consciousness"
 * ^version = "0.1.0"
 
 * insert HeaderDetailRules
 
 * ^caseSensitive = false
-* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/SleepStatus"
+* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/Consciousness"
 * ^hierarchyMeaning = #is-a
 * ^compositional = false
 * ^versionNeeded = false
 * ^content = #complete
 
-* #awake "The patient is awake"
-* #sleepibg "The patient sleeps"
+* #awake "The patient is awake."
+* #unconscious "The patient is unconscious."
+* #sleeping "The patient is sleeping."
 
 
-ValueSet: SleepStatus
-Id: SleepStatus
-Title: "Sleep Status"
-Description: "**Sleep Status**"
+ValueSet: Consciousness
+Id: Consciousness
+Title: "Consciousness"
+Description: "**Consciousness**"
 
-* ^url = "http://vitals.oemig.de/fhir/ValueSet/SleepStatus"
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/Consciousness"
 * ^version = "0.1.0"
 
 * insert HeaderDetailRules
 
-* include codes from system http://vitals.oemig.de/fhir/CodeSystem/SleepStatus
+* include codes from system http://vitals.oemig.de/fhir/CodeSystem/Consciousness
 
 
 
@@ -391,6 +408,48 @@ Description: "**Units for measuring Blood Pressure**"
 
 * ^compose.include[+].system = "http://unitsofmeasure.org"
 * ^compose.include[=].concept[+].code = #mm[Hg]
+
+
+
+
+
+
+
+CodeSystem: Interpretation
+Id: Interpretation
+Title: "Interpretation"
+Description: "**Interpretation** (to be replaced by V3 VS)"
+
+* ^url = "http://vitals.oemig.de/fhir/CodeSystem/Interpretation"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* ^caseSensitive = false
+* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/Interpretation"
+* ^hierarchyMeaning = #is-a
+* ^compositional = false
+* ^versionNeeded = false
+* ^content = #complete
+
+* #normal "normal"
+* #low "low"
+* #criticalLow "critical low"
+* #high "high"
+* #criticalHigh "criticial high"
+
+
+ValueSet: Interpretation
+Id: Interpretation
+Title: "Interpretation"
+Description: "**Interpretation** (to be replaced by V3 VS)"
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/Interpretation"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* include codes from system http://vitals.oemig.de/fhir/CodeSystem/Interpretation
 
 
 

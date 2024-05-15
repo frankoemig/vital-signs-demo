@@ -48,6 +48,7 @@ title Blood Pressure related Concepts
 -----_ mmHg
 ---[#fcc] reference range
 ----_ age: integer
+----_ gender: code
 ---[#fcc] interpretation
 ----[#cff] DT: code
 -----_ low
@@ -69,6 +70,8 @@ title Blood Pressure related Concepts
 +++[#88f] involved persons
 ++++[#88f] subject
 ++++[#88f] author
++++++_ age
++++++_ gender
 ++++[#88f] performer
 
 ++[#ff8] protocol
@@ -97,9 +100,10 @@ title Blood Pressure related Concepts
 ++++[#cff] DT: code
 +++[#ff8] cuff size
 ++++[#cff] DT: integer
-+++[#ff8] sleeping status
++++[#ff8] consciousness
 ++++[#cff] DT: code
 +++++_ awake
++++++_ unconscious
 +++++_ sleeping
 
 ++[#ff8] comment

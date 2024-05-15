@@ -88,9 +88,9 @@ Description: "This is a draft **LM for CDA**. (It still requires modifications c
 
   * sleepStatus 0..1 CodeableConcept "sleep status during measurement"
     * classCode 1..1 CodeableConcept "class code"
-    * classCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#sleepStatus
+    * classCode = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#consciousness
     * value 0..* CodeableConcept "exertion during measurement"
-    * value from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
+    * value from http://vitals.oemig.de/fhir/ValueSet/Consciousness (required)
 
 * participant 0..* BackboneElement "participants"
   * subject 0..1 SU Reference(Patient) "patient"

@@ -88,7 +88,7 @@ Providing the floor for standards development for specific use cases promotes in
 
 * extension contains
   ObsBodyPosition named bodyPosition 0..1 MS and
-  SleepStatusExt named sleepStatus 0..1 MS and
+  ConsciousnessExt named consciousness 0..1 MS and
   ExertionExt named exertion 0..1 MS 
 //  $SleepStatusExt named sleepStatus 0..1 MS and
 //  $ExerciseAssociationExt named exerciseAssociation 0..1 MS and
@@ -96,7 +96,7 @@ Providing the floor for standards development for specific use cases promotes in
   
 * extension[bodyPosition] ^short = "Body Position"  
 
-* extension[sleepStatus] ^short = "Sleep Status"  
+* extension[consciousness] ^short = "Consciousness"  
 
 * extension[exertion] ^short = "Exertion / Exercise Association"  
 
@@ -288,15 +288,15 @@ Description: "Exertion"
 * value[x] from http://vitals.oemig.de/fhir/ValueSet/Exertion (required)
 
 
-Extension: SleepStatusExt
-Id:        sleepStatusExt
-Title:     "Sleep Status"
-Description: "Sleep Status"
+Extension: ConsciousnessExt
+Id:        ConsciousnessExt
+Title:     "Consciousness"
+Description: "Consciousness"
 // Limit the context to Observations
 * ^context[+].type = #element
 * ^context[=].expression = "StructureDefinition"
 * value[x] only CodeableConcept
-* value[x] from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
+* value[x] from http://vitals.oemig.de/fhir/ValueSet/Consciousness (required)
 
 
 

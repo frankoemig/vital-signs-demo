@@ -1,11 +1,16 @@
 @startuml
 
 :Domain Expert: as de
-:Standards Expert/\nComputer Scientist: as se
-:FHIR Expert: as fe
-:Vendor: as vendor
+:Data Standards Expert, \neg. FHIR, V3/CDA, v2, ..: as fe
+
+package "Vendor" as pkg {
+    :Product Owner/Developer: as vendor
+    database "Data Model" as dm
+    hexagon "Application" as app
+}
 
 cloud "Mindmap" as mm
+:Standards Expert/\nComputer Scientist: as se
 
 artifact "Information Model" as im {
     component "Class(es) and their relationships"
@@ -14,7 +19,7 @@ artifact "Data Set" as ds {
     file "Data Set"
 }
 
-artifact "Profile (Hierarchy)" as prof {
+artifact "standard-specific Profile (Hierarchy)" as prof {
     component "Profile(s)"
 }
 
@@ -22,23 +27,22 @@ artifact "Use Case" as uc {
     storage "Use Case"
 }
 
-de -[#red]down-> mm : collect ideas \nand \ndomain knowledge
+de -[#red]down--> mm : collect ideas \nand \ndomain knowledge
+de -[#red]down--> uc: collect details
 
-mm -[#red]right-> im : formalize
-im -[#red]down-> ds
+mm -[#red]down-> im : formalize
+im -[#red]down-> ds : extract per Use Case
 ds -[#red]right-> prof
 
-se --> im
+se -left-> im
 fe --> prof
 
 uc <.left.> im
-uc ..> ds
+uc .[#red].> ds
 
-database "Data Model" as dm
-hexagon "Application" as app
 
 vendor -right-> dm : creates for his application
-im --> dm : influences
+im --> dm : influences/\nconformant
 vendor -right-> app : develops
 app -up-> dm : uses
 mm .[hidden]down. vendor

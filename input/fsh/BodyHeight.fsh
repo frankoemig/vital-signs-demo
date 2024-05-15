@@ -15,7 +15,7 @@ Description: "LM for **Body Height**"
   * value 1..1 positiveInt "value"
     * obeys shall-be-under-250-cm
   * unit 1..1 CodeableConcept "units"
-  * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
+  * unit from http://vitals.oemig.de/fhir/ValueSet/BHunits (required)
   * interpretation 0..1 CodeableConcept "interpretation"
 
 * measuringType 0..1 CodeableConcept "measuring type"
@@ -92,6 +92,8 @@ Description: "**Units for measuring Body Height**"
 * ^compose.include[+].system = "http://unitsofmeasure.org"
 * ^compose.include[=].concept[+].code = #cm
 * ^compose.include[=].concept[+].code = #m
+* ^compose.include[=].concept[+].code = #in_i
+* ^compose.include[=].concept[+].code = #ft_i
 
 
 

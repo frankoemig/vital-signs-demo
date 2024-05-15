@@ -2,7 +2,7 @@ Logical: BloodPressure
 Parent: Base
 Id: BloodPressure
 Title: "Blood Pressure LM"
-Description: "LM for **Blood Pressure**"
+Description: "This is the Logical Model for **Blood Pressure**"
 
 * ^version = "0.1.0"
 * ^abstract = false
@@ -12,6 +12,8 @@ Description: "LM for **Blood Pressure**"
 * insert HeaderDetailRules
 
 * systolicPressure 0..1 SU BackboneElement "systolic blood pressure" "Peak systemic arterial blood pressure - measured in systolic or contraction phase of the heart cycle."
+  * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
+  * code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (extensible)
   * value 1..1 positiveInt "value"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
@@ -19,6 +21,8 @@ Description: "LM for **Blood Pressure**"
   * interpretation 0..1 CodeableConcept "interpretation"
 
 * diastolicPressure 0..1 SU BackboneElement "diastolic blood pressure" "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
+  * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
+  * code from http://vitals.oemig.de/fhir/ValueSet/us-core-diastolic-blood-pressure-code (extensible)
   * value 1..1 positiveInt "value"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
@@ -26,6 +30,8 @@ Description: "LM for **Blood Pressure**"
   * interpretation 0..1 CodeableConcept "interpretation"
 
 * meanArterialPressure 0..1 BackboneElement "mean arterial blood pressure" "The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle."
+  * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
+  * code from http://vitals.oemig.de/fhir/ValueSet/us-core-mean-arterial-blood-pressure-code (extensible)
   * value 1..1 positiveInt "value"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
@@ -33,6 +39,8 @@ Description: "LM for **Blood Pressure**"
   * interpretation 0..1 CodeableConcept "interpretation"
 
 * pulsePressure 0..1 BackboneElement "pulse blood pressure" "The difference between the systolic and diastolic pressure."
+  * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
+  * code from http://vitals.oemig.de/fhir/ValueSet/us-core-pulse-blood-pressure-code (extensible)
   * value 1..1 positiveInt "value"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
@@ -53,11 +61,17 @@ Description: "LM for **Blood Pressure**"
 * location from http://vitals.oemig.de/fhir/ValueSet/Location (required)
 * sleepingStatus 0..1 CodeableConcept "sleeping status"
 * sleepingStatus from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
-* exertion[x] 0..1 integer or CodeableConcept "physical activity (in Watts or as codes)" 
+* exertion[x] 0..1 integer or CodeableConcept "physical activity (measured in Watts or as coded information)" 
 
+* bodyWeight 0..1 BodyWeight "body weight"
+
+* medication[x] 0..1 boolean or Reference(MedicationStatement) "medication to be considered, minimum is the indication that there is some kind of medication"
+ 
 * method 0..1 CodeableConcept "measurement method"
 * tilt 0..1 integer "tilt (in degrees)"
+
 * comment 0..1 string "any comment"
+
 * subject 0..1 Reference(Patient) "reference to the subject of the measurement"
 * author 0..1 Reference(Practitioner) "reference to the author of the measurement"
 * performer 0..1 Reference(Practitioner) "reference to the performer of the measurement"

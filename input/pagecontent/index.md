@@ -59,4 +59,5 @@ The following drawing illustrates that:
 <br clear="all"/>  
 
 After all, it has to be verified that no detail is lost. Also, it must be ensured that specific relationships,
-esp. the mininum cardinality has been correctly represented in the next model.
+esp. the minimum cardinality has been correctly represented in the next (derived) model.
+

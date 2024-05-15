@@ -58,7 +58,10 @@ Description: "**Observation Vital Signs Category**"
 
 * insert HeaderDetailRules
 
-* include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory where code descendent-of #vital-sign
+//* include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory where code descendent-of #vital-sign
 
-
-
+* ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory"
+* ^compose.include[=].concept[+].code = #vital-sign-bp
+* ^compose.include[=].concept[+].code = #vital-sign-bw
+* ^compose.include[=].concept[+].code = #vital-sign-bh
+* ^compose.include[=].concept[+].code = #vital-sign-bmi

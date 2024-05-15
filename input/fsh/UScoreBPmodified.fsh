@@ -23,6 +23,14 @@ Description: """
 * ^date = "2024-05-09"
 * ^publisher = "HL7 International / Cross-Group Projects"
 
+
+* extension contains
+  MedicationExt named medication 0..* MS and
+  BodyWeightExt named bodyWeight 0..1 MS
+
+* extension[medication] ^short = "Medication to be considered for correct interpretation"  
+* extension[bodyWeight] ^short = "Body weight to be considered for correct interpretation"  
+
 * status MS
 * status from ObservationStatus (required)
 
@@ -81,7 +89,7 @@ Providing the floor for standards development for specific use cases promotes in
 * extension contains
   ObsBodyPosition named bodyPosition 0..1 MS and
   SleepStatusExt named sleepStatus 0..1 MS and
-  ExertionExt named exertion 0..1 MS
+  ExertionExt named exertion 0..1 MS 
 //  $SleepStatusExt named sleepStatus 0..1 MS and
 //  $ExerciseAssociationExt named exerciseAssociation 0..1 MS and
 //  $MeasurementSettingExt named measurementSetting 0..1 MS
@@ -124,7 +132,8 @@ Providing the floor for standards development for specific use cases promotes in
 
 * component[SystolicBP] ^short = "Systolic Blood Pressure"
 * component[SystolicBP].code 1..1 MS
-* component[SystolicBP].code = $loinc#8480-6
+//* component[SystolicBP].code = $loinc#8480-6
+* component[SystolicBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (extensible)
 * component[SystolicBP].code ^short = "Systolic Blood Pressure Code"
 * component[SystolicBP].valueQuantity only Quantity
 * component[SystolicBP].valueQuantity MS
@@ -183,7 +192,7 @@ Providing the floor for standards development for specific use cases promotes in
 ValueSet: USCoreBloodPressureCategory
 Id: us-core-modified-blood-pressure-category
 Title: "Vital Signs Blood Pressure Category Codes"
-Description: """TEST...."""
+Description: """Value Set for Blood Pressure Category"""
 
 * ^url = "http://vitals.oemig.de/fhir/ValueSet/us-core-modified-blood-pressure-category"
 * ^version = "0.1.0"
@@ -192,6 +201,7 @@ Description: """TEST...."""
 
 * ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory"
 * ^compose.include[=].concept[+].code = #vital-sign-bp
+
 
 
 ValueSet: USCoreBloodPressureCodes
@@ -206,6 +216,64 @@ Description: """Codes to measure BP; more codes to be added"""
 
 * ^compose.include[+].system = "http://loinc.org"
 * ^compose.include[=].concept[+].code = #85354-9
+
+
+ValueSet: USCoreSystolicBloodPressureCodes
+Id: us-core-systolic-blood-pressure-code
+Title: "Vital Signs Systolic Blood Pressure Codes"
+Description: """Codes to measure systolic BP; codes still to be added"""
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code"
+* ^version = "0.1.0"
+* ^status = #draft
+* ^experimental = true
+
+* ^compose.include[+].system = "http://loinc.org"
+* ^compose.include[=].concept[+].code = #8480-6
+
+
+ValueSet: USCoreDiastolicBloodPressureCodes
+Id: us-core-diastolic-blood-pressure-code
+Title: "Vital Signs Diastolic Blood Pressure Codes"
+Description: """Codes to measure diastolic BP; codes still to be added"""
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/us-core-diastolic-blood-pressure-code"
+* ^version = "0.1.0"
+* ^status = #draft
+* ^experimental = true
+
+//* ^compose.include[+].system = "http://loinc.org"
+//* ^compose.include[=].concept[+].code = #85354-9
+
+
+ValueSet: USCoreMeanArterialBloodPressureCodes
+Id: us-core-mean-arterial-blood-pressure-code
+Title: "Vital Signs Mean Arterial Blood Pressure Codes"
+Description: """Codes to measure mean arterial systolic BP; codes still to be added"""
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/us-core-mean-arterial-blood-pressure-code"
+* ^version = "0.1.0"
+* ^status = #draft
+* ^experimental = true
+
+//* ^compose.include[+].system = "http://loinc.org"
+//* ^compose.include[=].concept[+].code = #85354-9
+
+
+ValueSet: USCorePulseBloodPressureCodes
+Id: us-core-pulse-blood-pressure-code
+Title: "Vital Signs Pulse Blood Pressure Codes"
+Description: """Codes to measure pulse BP; codes still to be added"""
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/us-core-pulse-blood-pressure-code"
+* ^version = "0.1.0"
+* ^status = #draft
+* ^experimental = true
+
+//* ^compose.include[+].system = "http://loinc.org"
+//* ^compose.include[=].concept[+].code = #85354-9
+
+
 
 
 
@@ -229,3 +297,25 @@ Description: "Sleep Status"
 * ^context[=].expression = "StructureDefinition"
 * value[x] only CodeableConcept
 * value[x] from http://vitals.oemig.de/fhir/ValueSet/SleepStatus (required)
+
+
+
+Extension: MedicationExt
+Id:        medicationExt
+Title:     "Medication to be considered"
+Description: "Medication to be considered for correct interpretation"
+
+* ^context[+].type = #element
+* ^context[=].expression = "StructureDefinition"
+* value[x] only Reference(MedicationStatement)
+
+
+Extension: BodyWeightExt
+Id:        bodweightExt
+Title:     "Body Weight to be considered"
+Description: "Body Weight to be considered for correct interpretation (has to be replaced by proper BW observation profile)"
+
+* ^context[+].type = #element
+* ^context[=].expression = "StructureDefinition"
+* value[x] only Reference(Observation)
+

@@ -35,14 +35,15 @@ Description: "LM for relevant attributes of **OBX Segment** (Observation in v2.x
 * valueDataType 0..1 CodeableConcept "Data Type (OBX-2)"
 * observationCode 0..* CodeableConcept "code for observed value (OBX-3)"
 * observationGroup 0..1 string "group of observations that belong together"
-* value 0..* string "observed/measured value (OBX-5)"
-* unit 0..* CodeableConcept "units (OBX-6)"
+* value 0..* integer "observed/measured value (OBX-5)"
+* unit 1..1 CodeableConcept "units (OBX-6)"
 * referenceRange 0..1 CodeableConcept "reference range for values (OBX-7)"
 * interpretation 0..1 CodeableConcept "interpretation code (OBX-8)"
 * observationDateTime 0..1 instant "Diagnosis Date/Time (OBX-14)"
 * responsibleObserver 0..1 Reference(Practitioner) "responsible observer (OBX-16)"
 * observationSite 0..1 CodeableConcept "body structure (OBX-20)"
 * observationAbsentReason 0..1 CodeableConcept "data absent reason (OBX-32)"
+
 
 
 //===========================================================================
@@ -100,7 +101,8 @@ Description: "v2 Profile: **Systolic** Blood Pressure"
 * valueDataType MS
 * valueDataType = $v2code#NM
 * observationCode MS
-* observationCode = $loinc#8480-6
+* observationCode from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (required)
+//* observationCode = $loinc#8480-6
 * value MS
 
 
@@ -117,7 +119,8 @@ Description: "v2 Profile: **Diastolic** Blood Pressure"
 * valueDataType MS
 * valueDataType = http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes#NM
 * observationCode MS
-* observationCode = $loinc#8482-2
+* observationCode from http://vitals.oemig.de/fhir/ValueSet/us-core-diastolic-blood-pressure-code (required)
+//* observationCode = $loinc#8482-2
 * value MS
 
 Profile: OBXmeanArterialBP

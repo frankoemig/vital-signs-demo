@@ -18,9 +18,15 @@ Description: "This is the Logical Model for **Blood Pressure**"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
+  * dataAbsentReason 0..1 CodeableConcept "Why the component result is missing"
+  * dataAbsentReason from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
   * interpretation 0..1 CodeableConcept "interpretation"
   * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
-  * range 0..1 CodeableConcept "reference range"
+  * range 0..* BackboneElement "reference range"
+    * low 0..1 integer "Low Range, if relevant"
+    * high 0..1 integer "High Range, if relevant"
+    * age 0..1 Range "Applicable age range, if relevant"
+    * text 0..1 string "Text based reference range in an observation"
 
 * diastolicPressure 0..1 SU BackboneElement "diastolic blood pressure" "Minimum systemic arterial blood pressure - measured in the diastolic or relaxation phase of the heart cycle."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -29,9 +35,15 @@ Description: "This is the Logical Model for **Blood Pressure**"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
+  * dataAbsentReason 0..1 CodeableConcept "Why the component result is missing"
+  * dataAbsentReason from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
   * interpretation 0..1 CodeableConcept "interpretation"
   * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
-  * range 0..1 CodeableConcept "reference range"
+  * range 0..* BackboneElement "reference range"
+    * low 0..1 integer "Low Range, if relevant"
+    * high 0..1 integer "High Range, if relevant"
+    * age 0..1 Range "Applicable age range, if relevant"
+    * text 0..1 string "Text based reference range in an observation"
 
 * meanArterialPressure 0..1 BackboneElement "mean arterial blood pressure" "The average arterial pressure that occurs over the entire course of the heart contraction and relaxation cycle."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -40,9 +52,15 @@ Description: "This is the Logical Model for **Blood Pressure**"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
+  * dataAbsentReason 0..1 CodeableConcept "Why the component result is missing"
+  * dataAbsentReason from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
   * interpretation 0..1 CodeableConcept "interpretation"
   * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
-  * range 0..1 CodeableConcept "reference range"
+  * range 0..* BackboneElement "reference range"
+    * low 0..1 integer "Low Range, if relevant"
+    * high 0..1 integer "High Range, if relevant"
+    * age 0..1 Range "Applicable age range, if relevant"
+    * text 0..1 string "Text based reference range in an observation"
 
 * pulsePressure 0..1 BackboneElement "pulse blood pressure" "The difference between the systolic and diastolic pressure."
   * code 0..1 CodeableConcept "code, in case of a precoordinated concept"
@@ -51,14 +69,23 @@ Description: "This is the Logical Model for **Blood Pressure**"
     * obeys shall-be-under-1000-mmHg
   * unit 1..1 CodeableConcept "units"
   * unit from http://vitals.oemig.de/fhir/ValueSet/BPunits (required)
+  * dataAbsentReason 0..1 CodeableConcept "Why the component result is missing"
+  * dataAbsentReason from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
   * interpretation 0..1 CodeableConcept "interpretation"
   * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
-  * range 0..1 CodeableConcept "reference range"
+  * range 0..* BackboneElement "reference range"
+    * low 0..1 integer "Low Range, if relevant"
+    * high 0..1 integer "High Range, if relevant"
+    * age 0..1 Range "Applicable age range, if relevant"
+    * text 0..1 string "Text based reference range in an observation"
 
 * interpretation 0..1 SU CodeableConcept "overall clinical meaning of the BP measurement"
 * interpretation from http://vitals.oemig.de/fhir/ValueSet/Interpretation (required)
 
-* range 0..1 CodeableConcept "reference range"
+* dataAbsentReason 0..1 CodeableConcept "Why the component result is missing"
+* dataAbsentReason from http://hl7.org/fhir/ValueSet/data-absent-reason (required)
+
+* range 0..* BackboneElement "reference range"
 
 * effective[x] 0..1 SU date or instant or Period "date of observation" "different representations"
 
@@ -281,7 +308,7 @@ Description: "**Position of the Body** during measurement"
 
 * ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/Position"
 * ^compose.include[+].system = "http://snomed.info/sct"
-* ^compose.include[=].concept[+].code = #3021006
+//* ^compose.include[=].concept[+].code = #3021006 falsch kopiert?
 * ^compose.include[=].concept[+].code = #26527006
 * ^compose.include[=].concept[+].code = #102536004
 * ^compose.include[=].concept[+].code = #414585002
@@ -415,30 +442,6 @@ Description: "**Units for measuring Blood Pressure**"
 
 
 
-CodeSystem: Interpretation
-Id: Interpretation
-Title: "Interpretation"
-Description: "**Interpretation** (to be replaced by V3 VS)"
-
-* ^url = "http://vitals.oemig.de/fhir/CodeSystem/Interpretation"
-* ^version = "0.1.0"
-
-* insert HeaderDetailRules
-
-* ^caseSensitive = false
-* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/Interpretation"
-* ^hierarchyMeaning = #is-a
-* ^compositional = false
-* ^versionNeeded = false
-* ^content = #complete
-
-* #normal "normal"
-* #low "low"
-* #criticalLow "critical low"
-* #high "high"
-* #criticalHigh "criticial high"
-
-
 ValueSet: Interpretation
 Id: Interpretation
 Title: "Interpretation"
@@ -449,7 +452,14 @@ Description: "**Interpretation** (to be replaced by V3 VS)"
 
 * insert HeaderDetailRules
 
-* include codes from system http://vitals.oemig.de/fhir/CodeSystem/Interpretation
-
-
+* ^compose.include[+].system = "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+* ^compose.include[=].concept[+].code = #A
+* ^compose.include[=].concept[+].code = #AA
+* ^compose.include[=].concept[+].code = #HH
+* ^compose.include[=].concept[+].code = #LL
+* ^compose.include[=].concept[+].code = #H
+* ^compose.include[=].concept[+].code = #HU
+* ^compose.include[=].concept[+].code = #L
+* ^compose.include[=].concept[+].code = #LU
+* ^compose.include[=].concept[+].code = #N
 

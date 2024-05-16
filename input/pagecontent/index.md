@@ -7,22 +7,31 @@ This IG is a demo to analyse some vital-signs profiles from different FHIR core 
 
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.
-The target of this guide is **not** to specify a complete and correct profiles,
-but to trigger a discussion aorund profiling.
+The target of this guide is **not** to specify a set of complete and correct profiles,
+but to trigger a discussion aorund profiling, i.e. the way profiles are currently created and maintained.
 It seems totally unnecessary to profile the same artifacts again and again,
 although different use cases may guide that way.
+
+The goal is:
+
+* global content-oriented profiles, by
+* cross-country specifications
+* cross-standard specifications
+* cross-language specifications
 
 The idea behind this guide is to propose an alternative way to create profiles that enable interoperability
 on a higher level. The targets are to present:
 
-* the data associated with those items
-* an information model that aggregates the details
-* representation in different data standards, w.g. v2 and FHIR
+* the underlying data associated with those items
+* an information model that aggregates the details and established the necessary relationships
+* representation in different data standards, e.g. v2, V3/CDA and FHIR
 * localisation to different countries
+* localisation to more specific use cases
 * mappings in between
 
-> **Caveat:** please keep in mind that everything is more or less incomplete. 
-> Also the artifacts in this guide are still under development.
+> **Caveat:** Please keep in mind that everything on these pages is more or less incomplete. 
+> Also, esp. the artifacts in this guide are still under development,
+> although they are in parts already more complete or usable than the originating ones.
 
 ### Process Model
 

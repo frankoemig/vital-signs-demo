@@ -92,8 +92,9 @@ Description: "**Units for measuring Body Height**"
 * ^compose.include[+].system = "http://unitsofmeasure.org"
 * ^compose.include[=].concept[+].code = #cm
 * ^compose.include[=].concept[+].code = #m
-* ^compose.include[=].concept[+].code = #in_i
-* ^compose.include[=].concept[+].code = #ft_i
+* ^compose.include[=].concept[+].code = #ft
+//* ^compose.include[=].concept[+].code = #in_i
+//* ^compose.include[=].concept[+].code = #ft_i
 
 
 

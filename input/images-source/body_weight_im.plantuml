@@ -1,7 +1,7 @@
 @startuml
 
 
-title Body Weight
+title Body Weight Information Model
 
 class "[[StructureDefinition-BodyWeight.html Body Weight]]" as bw {
     value: decimal
@@ -9,6 +9,7 @@ class "[[StructureDefinition-BodyWeight.html Body Weight]]" as bw {
     measuringType: code
     clothing: code
     eating: code
+    shoes: boolean
     dateTime: instant
 }
 
@@ -19,6 +20,10 @@ class "Body Parts" as bp {
 class "Subject" as pat
 class "Author" as aut
 class "Performer" as perf
+
+class "Lost Body Structure" as bs {
+    code
+}
 
 class "Reference Range" as rr {
     low
@@ -31,6 +36,8 @@ bw -- "0..1" aut
 bw -- "0..1" perf 
 
 bw *-- "0..1" rr
+
+bw *-- "0..*" bs
 
 bw -- "0..*" bp : lost >
 

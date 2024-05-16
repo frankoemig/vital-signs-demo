@@ -62,6 +62,10 @@ Again, this drawing is somehow abstract:
 
 Link to the FHIR Profile: [Blood Pressure Profile](StructureDefinition-us-core-modified-blood-pressure.html)
 
+**Open Questions:**
+
+* Should we better use components instead of extensions?
+
 #### Step 4b: Template (with CDA)
 
 Unfortunately, PlantUML does not allow for drawing the classes as it has been done with Visio.

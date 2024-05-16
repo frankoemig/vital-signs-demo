@@ -1,5 +1,7 @@
 @startmindmap
 
+skinparam svgDimensionStyle false
+
 + **Body Weight**
 --[#fcc] measurement
 ---[#fcc] value
@@ -8,9 +10,9 @@
 -----_ kg
 -----_ g (for newborns)
 ---[#fcc] reference range
-----[#fcc] low
-----[#fcc] high
-----[#fcc] age
+----_ low
+----_ high
+----_ age
 ---[#fcc] interpretation
 ----[#cff] DT: code
 -----_ low
@@ -46,6 +48,8 @@
 ++++[#cff] DT: code
 +++++_ beforeMeal
 +++++_ afterMeal
++++[#ff8] shoes
+++++[#cff] DT: boolean
 ++[#ff8] comment
 +++[#cff] DT: text
 

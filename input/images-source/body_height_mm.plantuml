@@ -10,11 +10,15 @@ title Body Height
 ----[#cff] DT: integer
 ----[#fcc] unit
 -----_ cm
+-----_ m
+-----_ ft
+-----_ in
 ---[#fcc] reference range
-----[#fcc] low
-----[#fcc] high
-----[#fcc] age
+----_ low
+----_ high
+----_ age
 ---[#fcc] interpretation
+----[#cff] DT: code
 
 ++[#ff8] administrative
 +++[#fcc] identifier
@@ -24,6 +28,7 @@ title Body Height
 
 +++[#88f] involved persons
 ++++[#88f] subject
++++++_ age
 ++++[#88f] author
 ++++[#88f] performer
 

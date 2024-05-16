@@ -10,6 +10,7 @@ Alias: $bodyPositionVS = http://hl7.org/fhir/us/vitals/ValueSet/bodyPositionVS
 
 
 
+
 Profile: USCoreModifiedVitalSigns
 Parent: Observation
 Id: us-core-modified-vital-signs
@@ -28,8 +29,8 @@ Description: """
   MedicationExt named medication 0..* MS and
   BodyWeightExt named bodyWeight 0..1 MS
 
-* extension[medication] ^short = "Medication to be considered for correct interpretation"  
-* extension[bodyWeight] ^short = "Body weight to be considered for correct interpretation"  
+* extension[medication] ^short = "Medication to be considered for correct interpretation of vital signs"  
+* extension[bodyWeight] ^short = "Body weight to be considered for correct interpretation of vital signs"  
 
 * status MS
 * status from ObservationStatus (required)
@@ -42,11 +43,17 @@ Description: """
 * subject MS
 * subject only Reference(Patient)
 
-//* effective[x] 0..1 SU date or instant or Period "date of observation" "different representations"
+* effective[x] 0..1 MS SU
+* effective[x] only dateTime or instant or Period
+
+* value[x] 0..1 MS SU 
+* value[x] only Quantity or string or integer 
 
 * dataAbsentReason MS
 
 * interpretation 0..1 MS
+
+* referenceRange 0..* MS
 
 * component 0..* MS
   * code 1..1 MS
@@ -90,17 +97,12 @@ Providing the floor for standards development for specific use cases promotes in
   ObsBodyPosition named bodyPosition 0..1 MS and
   ConsciousnessExt named consciousness 0..1 MS and
   ExertionExt named exertion 0..1 MS 
-//  $SleepStatusExt named sleepStatus 0..1 MS and
-//  $ExerciseAssociationExt named exerciseAssociation 0..1 MS and
-//  $MeasurementSettingExt named measurementSetting 0..1 MS
   
 * extension[bodyPosition] ^short = "Body Position"  
 
 * extension[consciousness] ^short = "Consciousness"  
 
 * extension[exertion] ^short = "Exertion / Exercise Association"  
-
-//* extension[measurementSetting] ^short = "Measurement Setting"  
 
 * status MS
 
@@ -126,39 +128,39 @@ Providing the floor for standards development for specific use cases promotes in
 * component ^slicing.rules = #open
 * component ^short = "Component observations"
 * component contains
-    SystolicBP 1..1 MS and
-    DiastolicBP 1..1 MS and
-	MeanArterialBP 0..1 MS
+    SystolicBPxx 1..1 MS and
+    DiastolicBP 0..1 MS and
+	MeanArterialBP 0..1 MS and
+	PulsePressureBP 0..1
 
-* component[SystolicBP] ^short = "Systolic Blood Pressure"
-* component[SystolicBP].code 1..1 MS
-//* component[SystolicBP].code = $loinc#8480-6
-* component[SystolicBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (extensible)
-* component[SystolicBP].code ^short = "Systolic Blood Pressure Code"
-* component[SystolicBP].valueQuantity only Quantity
-* component[SystolicBP].valueQuantity MS
-* component[SystolicBP].valueQuantity ^short = "Vital Sign Component Value"
-* component[SystolicBP].valueQuantity.value 1..1 MS
-* component[SystolicBP].valueQuantity.value only decimal
-* component[SystolicBP].valueQuantity.unit 1..1 MS
-* component[SystolicBP].valueQuantity.unit only string
-* component[SystolicBP].valueQuantity.system 1..1 MS
-* component[SystolicBP].valueQuantity.system only uri
-* component[SystolicBP].valueQuantity.system = "http://unitsofmeasure.org" (exactly)
-* component[SystolicBP].valueQuantity.code 1..1 MS
-* component[SystolicBP].valueQuantity.code only code
-* component[SystolicBP].valueQuantity.code = #mm[Hg] (exactly)
+* component[SystolicBPxx] ^short = "Systolic Blood Pressure"
+* component[SystolicBPxx].code 1..1 MS
+* component[SystolicBPxx].code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (required)
+* component[SystolicBPxx].code ^short = "Systolic Blood Pressure Code"
+* component[SystolicBPxx].valueQuantity only Quantity
+* component[SystolicBPxx].valueQuantity MS
+* component[SystolicBPxx].valueQuantity ^short = "Vital Sign Component Value"
+* component[SystolicBPxx].valueQuantity.value 1..1 MS
+* component[SystolicBPxx].valueQuantity.value only decimal
+* component[SystolicBPxx].valueQuantity.unit 0..1 MS
+* component[SystolicBPxx].valueQuantity.unit only string
+* component[SystolicBPxx].valueQuantity.system 1..1 MS
+* component[SystolicBPxx].valueQuantity.system only uri
+* component[SystolicBPxx].valueQuantity.system = "http://unitsofmeasure.org" (exactly)
+* component[SystolicBPxx].valueQuantity.code 1..1 MS
+* component[SystolicBPxx].valueQuantity.code only code
+* component[SystolicBPxx].valueQuantity.code = #mm[Hg] (exactly)
 
 * component[DiastolicBP] ^short = "Diastolic Blood Pressure"
 * component[DiastolicBP].code 1..1 MS
-* component[DiastolicBP].code = $loinc#8462-4
+* component[DiastolicBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-diastolic-blood-pressure-code (required)
 * component[DiastolicBP].code ^short = "Diastolic Blood Pressure Code"
 * component[DiastolicBP].valueQuantity only Quantity
 * component[DiastolicBP].valueQuantity MS
 * component[DiastolicBP].valueQuantity ^short = "Vital Sign Component Value"
 * component[DiastolicBP].valueQuantity.value 1..1 MS
 * component[DiastolicBP].valueQuantity.value only decimal
-* component[DiastolicBP].valueQuantity.unit 1..1 MS
+* component[DiastolicBP].valueQuantity.unit 0..1 MS
 * component[DiastolicBP].valueQuantity.unit only string
 * component[DiastolicBP].valueQuantity.system 1..1 MS
 * component[DiastolicBP].valueQuantity.system only uri
@@ -167,16 +169,16 @@ Providing the floor for standards development for specific use cases promotes in
 * component[DiastolicBP].valueQuantity.code only code
 * component[DiastolicBP].valueQuantity.code = #mm[Hg] (exactly)
 
-* component[MeanArterialBP] ^short = "Systolic Blood Pressure"
+* component[MeanArterialBP] ^short = "Mean Arterial Blood Pressure"
 * component[MeanArterialBP].code 1..1 MS
-* component[MeanArterialBP].code = $loinc#8478-0
+* component[MeanArterialBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-mean-arterial-blood-pressure-code (required)
 * component[MeanArterialBP].code ^short = "Mean Arterial Blood Pressure Code"
 * component[MeanArterialBP].valueQuantity only Quantity
 * component[MeanArterialBP].valueQuantity MS
 * component[MeanArterialBP].valueQuantity ^short = "Vital Sign Component Value"
 * component[MeanArterialBP].valueQuantity.value 1..1 MS
 * component[MeanArterialBP].valueQuantity.value only decimal
-* component[MeanArterialBP].valueQuantity.unit 1..1 MS
+* component[MeanArterialBP].valueQuantity.unit 0..1 MS
 * component[MeanArterialBP].valueQuantity.unit only string
 * component[MeanArterialBP].valueQuantity.system 1..1 MS
 * component[MeanArterialBP].valueQuantity.system only uri
@@ -186,6 +188,23 @@ Providing the floor for standards development for specific use cases promotes in
 * component[MeanArterialBP].valueQuantity.code = #mm[Hg] (exactly)
 
 
+* component[PulsePressureBP] ^short = "Pulse Blood Pressure"
+* component[PulsePressureBP].code 1..1 MS
+* component[PulsePressureBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-pulse-blood-pressure-code (required)
+* component[PulsePressureBP].code ^short = "Mean Arterial Blood Pressure Code"
+* component[PulsePressureBP].valueQuantity only Quantity
+* component[PulsePressureBP].valueQuantity MS
+* component[PulsePressureBP].valueQuantity ^short = "Vital Sign Component Value"
+* component[PulsePressureBP].valueQuantity.value 1..1 MS
+* component[PulsePressureBP].valueQuantity.value only decimal
+* component[PulsePressureBP].valueQuantity.unit 0..1 MS
+* component[PulsePressureBP].valueQuantity.unit only string
+* component[PulsePressureBP].valueQuantity.system 1..1 MS
+* component[PulsePressureBP].valueQuantity.system only uri
+* component[PulsePressureBP].valueQuantity.system = "http://unitsofmeasure.org" (exactly)
+* component[PulsePressureBP].valueQuantity.code 1..1 MS
+* component[PulsePressureBP].valueQuantity.code only code
+* component[PulsePressureBP].valueQuantity.code = #mm[Hg] (exactly)
 
 
 
@@ -242,8 +261,8 @@ Description: """Codes to measure diastolic BP; codes still to be added"""
 * ^status = #draft
 * ^experimental = true
 
-//* ^compose.include[+].system = "http://loinc.org"
-//* ^compose.include[=].concept[+].code = #85354-9
+* ^compose.include[+].system = "http://loinc.org"
+* ^compose.include[=].concept[+].code = #8462-4
 
 
 ValueSet: USCoreMeanArterialBloodPressureCodes
@@ -256,8 +275,8 @@ Description: """Codes to measure mean arterial systolic BP; codes still to be ad
 * ^status = #draft
 * ^experimental = true
 
-//* ^compose.include[+].system = "http://loinc.org"
-//* ^compose.include[=].concept[+].code = #85354-9
+* ^compose.include[+].system = "http://loinc.org"
+* ^compose.include[=].concept[+].code = #8478-0
 
 
 ValueSet: USCorePulseBloodPressureCodes
@@ -319,3 +338,26 @@ Description: "Body Weight to be considered for correct interpretation (has to be
 * ^context[=].expression = "StructureDefinition"
 * value[x] only Reference(Observation)
 
+
+Instance: BloodPressureExample
+InstanceOf: us-core-modified-blood-pressure
+Usage: #example
+Description: "This is a very draft example of a bloodpressure measurement and still needs a lot of more details."
+
+* status = #final
+* category = $category#vital-sign-bp
+* code = $loinc#85354-9
+* valueString = "80-120"
+* effectiveDateTime = "2024-05-12T09:30:10+01:00"
+* note.text = "ok"
+//* subjecct = Reference(Patient/1)
+
+* component[+].code = $loinc#8480-6
+* component[=].valueQuantity.value = 80
+* component[=].valueQuantity.system = "http://unitsofmeasure.org"
+* component[=].valueQuantity.code = #mm[Hg]
+
+* component[+].code = $loinc#8462-4
+* component[=].valueQuantity.value = 120
+* component[=].valueQuantity.system = "http://unitsofmeasure.org"
+* component[=].valueQuantity.code = #mm[Hg]

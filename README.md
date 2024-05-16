@@ -18,3 +18,6 @@ restricts the use too much.
 
 Caveat: Of course, the details of the examples are in parts incomplete and most probably not quite accurate.
 However, the way forward should be documented and discussed.
+
+For the content, it is continously undergoing improvements and corrections so that regular visits 
+are recommended.

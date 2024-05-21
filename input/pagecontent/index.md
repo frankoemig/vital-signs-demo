@@ -70,3 +70,5 @@ The following drawing illustrates that:
 After all, it has to be verified that no detail is lost. Also, it must be ensured that specific relationships,
 esp. the minimum cardinality has been correctly represented in the next (derived) model.
 
+There will be a back and forth between the different phases to improve the content, and to ensure consistency.
+

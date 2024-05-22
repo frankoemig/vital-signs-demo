@@ -1,5 +1,7 @@
 @startuml
 
+title BP Profile(s) in the Vital Sign Hierarchy
+
 class "Vital Sign" as vs {
     status: code
     category: code = vital-sign
@@ -37,10 +39,12 @@ class "Blood Pressure 24h Average" as bpa {
 class "Patient" as pat
 class "Author" as aut
 
-class "US Core BP" as usbp 
+class "US Core Spot BP" as usbp1 
 class "DE Core BP" as debp
 vs <|-- bp
 vs <|-- bw
+
+class "US Core Avg BP" as usbp2 
 
 vs -right- pat : subject >
 vs -- aut : author >
@@ -48,7 +52,9 @@ vs -- aut : author >
 bp <|-- bps
 bp <|-- bpa
 
-bps <|-- usbp
+bpa <|-- usbp2
+
+bps <|-- usbp1
 bps <|-- debp
 
 bp "0..*" ..left. "0..1" bw

@@ -2,25 +2,25 @@
 
 skinparam svgDimensionStyle false
 
-title Blood Pressure related Concepts
+title Blood Pressure related Concepts to be considered
 
 + **Blood** \n**Pressure**
 --[#ff8] value
 ---[#fcc] systolic
 ----[#cff] DT: integer
------_ range: 0-1000
+-----_ range: 0-400
 ----[#fcc] reference range
------_ range: 0-1000
+-----_ range: 0-400
 -----_ age: integer
 ---[#fcc] diastolic
 ----[#cff] DT: integer
------_ range: 0-1000
+-----_ range: 0-400
 -----_ age: integer
 ----[#fcc] reference range
------_ range: 0-1000
+-----_ range: 0-400
 ---[#fcc] meanArterialPressure
 ----[#cff] DT: integer
------_ range: 0-1000
+-----_ range: 0-400
 ---- duration
 -----[#cff] DT: code
 ------_ 1h
@@ -32,9 +32,11 @@ title Blood Pressure related Concepts
 -----[#cff] DT: code
 ------_ ballanced
 ------_ algorithm
+----[#fcc] reference range
 ---[#fcc] pulsePressure
 ----[#cff] DT: integer
 -----_ range: 0-1000
+----[#fcc] reference range
 ---[#fcc] duration of measurement
 ----[#cff] DT: code
 -----_ spot
@@ -98,10 +100,13 @@ title Blood Pressure related Concepts
 ++++[#cff] DT: code
 +++[#ff8] exertion
 ++++[#cff] DT: code
++++[#ff8] event
+++++_ normal
+++++_ stressed by someone/thing
 +++[#ff8] cuff type
 ++++[#cff] DT: code
 +++[#ff8] cuff size
-++++[#cff] DT: integer
+++++[#cff] DT: code/integer
 +++[#ff8] consciousness
 ++++[#cff] DT: code
 +++++_ awake

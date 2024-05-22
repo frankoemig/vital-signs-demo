@@ -61,7 +61,26 @@ Description: "**Observation Vital Signs Category**"
 //* include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory where code descendent-of #vital-sign
 
 * ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory"
+* ^compose.include[=].concept[+].code = #vital-sign
 * ^compose.include[=].concept[+].code = #vital-sign-bp
 * ^compose.include[=].concept[+].code = #vital-sign-bw
 * ^compose.include[=].concept[+].code = #vital-sign-bh
 * ^compose.include[=].concept[+].code = #vital-sign-bmi
+
+
+
+
+ValueSet: ObservationVitalSignsBPCategory
+Id: ObservationVitalSignsBPCategory
+Title: "Observation Vital Signs Category"
+Description: "**Observation Vital Signs Blood Pressure Category**"
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/ObservationVitalSignsBPCategory"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+//* include codes from system http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory where code descendent-of #vital-sign-bp
+
+* ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory"
+* ^compose.include[=].concept[+].code = #vital-sign-bp

@@ -235,6 +235,7 @@ Description: """Codes to measure BP; more codes to be added"""
 
 * ^compose.include[+].system = "http://loinc.org"
 * ^compose.include[=].concept[+].code = #85354-9
+* ^compose.include[=].concept[+].code = #moreCodesToAdd
 
 
 ValueSet: USCoreSystolicBloodPressureCodes
@@ -249,6 +250,7 @@ Description: """Codes to measure systolic BP; codes still to be added"""
 
 * ^compose.include[+].system = "http://loinc.org"
 * ^compose.include[=].concept[+].code = #8480-6
+* ^compose.include[=].concept[+].code = #moreSystolicCodesToAdd
 
 
 ValueSet: USCoreDiastolicBloodPressureCodes
@@ -263,6 +265,7 @@ Description: """Codes to measure diastolic BP; codes still to be added"""
 
 * ^compose.include[+].system = "http://loinc.org"
 * ^compose.include[=].concept[+].code = #8462-4
+* ^compose.include[=].concept[+].code = #moreDiastolicCodesToAdd
 
 
 ValueSet: USCoreMeanArterialBloodPressureCodes
@@ -277,6 +280,7 @@ Description: """Codes to measure mean arterial systolic BP; codes still to be ad
 
 * ^compose.include[+].system = "http://loinc.org"
 * ^compose.include[=].concept[+].code = #8478-0
+* ^compose.include[=].concept[+].code = #moreMeanArterialCodesToAdd
 
 
 ValueSet: USCorePulseBloodPressureCodes
@@ -289,8 +293,9 @@ Description: """Codes to measure pulse BP; codes still to be added"""
 * ^status = #draft
 * ^experimental = true
 
-//* ^compose.include[+].system = "http://loinc.org"
+* ^compose.include[+].system = "http://loinc.org"
 //* ^compose.include[=].concept[+].code = #85354-9
+* ^compose.include[=].concept[+].code = #morePulseCodesToAdd
 
 
 
@@ -350,7 +355,7 @@ Description: "This is a very draft example of a bloodpressure measurement and st
 * valueString = "80-120"
 * effectiveDateTime = "2024-05-12T09:30:10+01:00"
 * note.text = "ok"
-//* subjecct = Reference(Patient/1)
+//* subject = Reference(Patient/1)
 
 * component[+].code = $loinc#8480-6
 * component[=].valueQuantity.value = 80

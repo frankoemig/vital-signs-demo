@@ -1,9 +1,12 @@
-This IG is a demo to analyse some vital-signs profiles from different FHIR core specifications (in different countries):
+This IG is a demo to analyse some vital-signs profiles from different FHIR core specifications (in different countries).
+Therefore this guide focuses on the following three:
 
 * [Blood Pressure](bloodpressure.html)
 * [Body Weight](body_weight.html)
 * [Body Height](body_height.html)
 * ... (more to be added on request)
+
+> This guide is NOT intended to discuss what aretefact is to be considered being a vital sign.
 
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.
@@ -11,6 +14,8 @@ The target of this guide is **not** to specify a set of complete and correct pro
 but to trigger a discussion aorund profiling, i.e. the way profiles are currently created and maintained.
 It seems totally unnecessary to profile the same artifacts again and again,
 although different use cases may guide that way.
+Comments in the direction of "it is impossible to specify the perfect" reality shows that diverging approaches
+are also not sufficient or leading to less efforts.
 
 The goal is:
 
@@ -71,4 +76,5 @@ After all, it has to be verified that no detail is lost. Also, it must be ensure
 esp. the minimum cardinality has been correctly represented in the next (derived) model.
 
 There will be a back and forth between the different phases to improve the content, and to ensure consistency.
+That helps to align and identify gaps.
 

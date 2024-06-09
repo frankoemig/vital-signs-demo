@@ -78,3 +78,8 @@ esp. the minimum cardinality has been correctly represented in the next (derived
 There will be a back and forth between the different phases to improve the content, and to ensure consistency.
 That helps to align and identify gaps.
 
+### Meta-Model vs. Information Model
+
+Another word on these two terms: In principle are they used interchangeably, ie. with the same intent.
+However, most probably they are not quite equivalent because **information models** help with an overarching
+collection of details that may be lost within **meta-models**.

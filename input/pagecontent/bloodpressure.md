@@ -17,10 +17,19 @@ must be duplicated. Unfortunately, PlantUML mindmaps do not allow for cross-link
 The following diagram aggregates all aspects that can be found somewhere.
 It tries to arrange them in a way that helps to understand the semantics,
 and to sort them.
+For the moment, additional explanatory text has not been duplicated from other sources for copyright and IP reasons.
+It can be expected, that this will be done later on.
 
 <div>
 {% include bloodpressure_mm.svg width='600px' %}
 </div>
+
+#### Some Notes on the mindmap
+
+* value on the left: assembles all details dealing with the measured value itself
+* protocol: context information
+* sleep status: this has been replaced by consciousness to also allow for "unconscious" as a separate value.
+* event: Some people increase their blood pressure by just seeing a physician, or for other reasons. Not sure whether this is relevant information, but it should not be left out.
 
 ### Step 2: Information Model
 
@@ -32,6 +41,27 @@ The important items are in bold:
 </div>
 
 To simplify abstract classes are introduced.
+
+#### Pre- vs. Post-Coordination
+
+An important topic taht normally does not belong into such a guide is the translation of pre-coordinated concepts
+to/from appropriate post-coordinated terms. The following table should help with that although the best presentation
+and appropriate details are still to be elaborated.
+
+| post-coordinated | base | addt'l details |
+| --- | --- | --- |
+| in rest and sitting | standard | no addt'l details |
+| in rest and standing | standard | position = standing |
+| walking | standard | position = walking + exertion = 25W |
+| jogging | standard | position = walking + exertion = 100W |
+| biking uphill | standard | position = sitting + exertion = 200W |
+| ... | ... | ... |
+
+In principle, a function like this one is necessary:
+
+> f(pre-coordination) = Base(concept) + Set(attributeValue)
+
+The problem is that this function is self-defining and recursive in the sense of a taxonomy.
 
 ### Step 3: Hierarchy for Vital Signs Profiles (informative)
 
@@ -64,7 +94,7 @@ Link to the FHIR Profile: [Blood Pressure Profile](StructureDefinition-us-core-m
 
 **Open Questions:**
 
-* Should we better use components instead of extensions?
+* Should we better use components instead of extensions? See the second profile...
 
 #### Step 4b: Template (with CDA)
 

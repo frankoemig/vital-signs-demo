@@ -4,6 +4,12 @@ skinparam svgDimensionStyle false
 
 title Blood Pressure related Concepts to be considered
 
+legend
+Legend:
+<img icon_modifier_extension_complex.png> relevant context details
+<img icon_page_n_i.gif> addt'l information
+end legend
+
 + **Blood** \n**Pressure**
 --[#ff8] value
 ---[#fcc] systolic
@@ -60,7 +66,7 @@ title Blood Pressure related Concepts to be considered
 -----_ critical high
 
 -- other relevant concepts
---- medication
+--- <img icon_modifier_extension_complex.png> medication
 ----_ influences the results of the measurement
 --- body weight
 ----_ relevant for a correct interpretation
@@ -86,7 +92,7 @@ title Blood Pressure related Concepts to be considered
 +++++_ ankle
 +++++_ finger
 +++++_ toe
-+++[#ff8] position
++++[#ff8] <img icon_modifier_extension_complex.png> position
 ++++[#cff] DT: code
 +++++_ sitting
 +++++_ standing
@@ -96,16 +102,18 @@ title Blood Pressure related Concepts to be considered
 ++++++_ lying with tilt to left
 +++[#ff8] tilt (degree)
 ++++[#cff] DT: integer
-+++[#ff8] method
++++[#ff8] <img icon_modifier_extension_complex.png>method
 ++++[#cff] DT: code
-+++[#ff8] exertion
++++[#ff8] <img icon_modifier_extension_complex.png> exertion
 ++++[#cff] DT: code
 +++[#ff8] event
 ++++_ normal
 ++++_ stressed by someone/thing
-+++[#ff8] cuff type
++++++_ physician
++++++_ bear/tiger/snake
++++[#ff8] <img icon_page_n_i.gif>cuff type
 ++++[#cff] DT: code
-+++[#ff8] cuff size
++++[#ff8] <img icon_page_n_i.gif>cuff size
 ++++[#cff] DT: code/integer
 +++[#ff8] consciousness
 ++++[#cff] DT: code

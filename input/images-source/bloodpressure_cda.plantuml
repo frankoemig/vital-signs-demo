@@ -91,6 +91,13 @@ class "Position" as pos <<Foo>> {
     value: CWE
 }
 
+class "Medication" as med <<Foo>> {
+    classCode = SUBSTADM
+    moodCode = EVN
+    code = #substanceadministration
+    value: CWE
+}
+
 class "component" as comp1 <<Foo2>> {
     typeCode = COMP
     contextConductionInd = true
@@ -110,6 +117,12 @@ class "component" as comp3 <<Foo2>> {
 }
 
 class "component" as comp4 <<Foo2>> {
+    typeCode = COMP
+    contextConductionInd = true
+    separatableInd = false
+}
+
+class "component" as comp5 <<Foo2>> {
     typeCode = COMP
     contextConductionInd = true
     separatableInd = false
@@ -150,10 +163,13 @@ bp --> "0..1" exer
 bp --> "0..1" pos
 (bp, pos) .. comp4
 
-bp --> "0..1" ae
+bp --> "0..1" med
+(bp, med) .. comp5
+
+bp -right-> "0..1" ae
 (bp, ae) .. author
 
-ae -- pers : playingEntity >
+ae -right- pers : playingEntity >
 
 syst --> "0..1" rr2
 (syst, rr2) .. or2

@@ -17,7 +17,7 @@ Description: "US Core Blood Pressure Profile inherits from the US Core Vital Sig
 * ^contact.telecom[=].value = "http://www.hl7.org/Special/committees/cgp"
 * ^contact.telecom[+].system = #email
 * ^contact.telecom[=].value = "cgp@lists.HL7.org"
-* ^jurisdiction = urn:iso:std:iso:3166#US
+//* ^jurisdiction = urn:iso:std:iso:3166#US
 * ^copyright = "Used by permission of HL7 International, all rights reserved Creative Commons License"
 * . ^short = "US Core Blood Pressure Profile"
 * code only CodeableConcept

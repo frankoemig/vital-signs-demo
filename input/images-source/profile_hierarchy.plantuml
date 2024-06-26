@@ -1,0 +1,48 @@
+@startuml
+
+package "Core" as pkg0 {
+}
+
+package "US Core" as pkg0us {
+}
+
+package "DE Core" as pkg0de {
+}
+
+package "Vital Sign Base" as pkg1 {
+}
+
+package "Blood Pressure" as pkg2 {
+}
+
+package "US Vital Sign Base" as pkg1us {
+}
+
+package "US Blood Pressure" as pkg2us {
+}
+
+package "DE Vital Sign Base" as pkg1de {
+}
+
+package "DE Blood Pressure" as pkg2de {
+}
+
+pkg0 --> pkg0us : derive
+pkg0 --> pkg0de : derive
+
+pkg1 --> pkg1us : derive
+pkg1 --> pkg1de : derive
+
+pkg2 --> pkg2us : derive
+pkg2 --> pkg2de : derive
+
+pkg1 -left-> pkg0 : include
+pkg2 -left-> pkg1 : include
+
+pkg1us --> pkg0us : include
+pkg1de --> pkg0de : include
+
+pkg2us --> pkg1us : include
+pkg2de --> pkg1de : include
+
+@enduml

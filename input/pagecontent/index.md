@@ -52,9 +52,9 @@ That results in a set of related classes in an information model.
 This information model should not only influence the data model and applicatin a vendor is developing, 
 but also the derived data set that is the foundation for the profile (hierarchy).
 
-### Profiling
+### Profiling: From data set to profiles!
 
-**How to do the profiling?**
+**How to do the profiling?** 
 
 From the information model use-case specific data sets have to be defined that collects and aggregates the necessary data.
 Those representations have to be transfered into proper data-standard-specific profiles.
@@ -83,3 +83,22 @@ That helps to align and identify gaps.
 Another word on these two terms: In principle are they used interchangeably, ie. with the same intent.
 However, most probably they are not quite equivalent because **information models** help with an overarching
 collection of details that may be lost within **meta-models**.
+
+### Profiling: Managing the IGs
+
+Another question is about managing and structuring the different IGs!
+Currently, we only have a single "FHIR Core" that is assumed to be
+the base for all other similar IGs.
+However, obviously this is not the case. 
+More or less all countries are developing their own set of profiles that are - more or less - identical to each other.
+Of course with the caveat, that due to their identification
+(as a profile) the may look identical but are definitely not.
+
+A solution may be to devide the profiles - including the aforementioned details - 
+into individual IGs so that additions and modifications
+may be easier - although more guides have to be maintained.
+It will result in the following structure:
+
+<div width="400px">
+{% include profile_hierarchy.svg %}
+</div>

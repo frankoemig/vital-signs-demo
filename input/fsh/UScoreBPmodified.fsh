@@ -352,7 +352,10 @@ Description: "This is a very draft example of a bloodpressure measurement and st
 * status = #final
 * category = $category#vital-sign-bp
 * code = $loinc#85354-9
-* valueString = "80-120"
+
+* valueQuantity.system = "http://unitsofmeasure.org"
+* valueQuantity.code = #mm[Hg]
+
 * effectiveDateTime = "2024-05-12T09:30:10+01:00"
 * note.text = "ok"
 //* subject = Reference(Patient/1)
@@ -361,8 +364,10 @@ Description: "This is a very draft example of a bloodpressure measurement and st
 * component[=].valueQuantity.value = 80
 * component[=].valueQuantity.system = "http://unitsofmeasure.org"
 * component[=].valueQuantity.code = #mm[Hg]
+* component[=].valueQuantity.unit = "#mm[Hg]"
 
 * component[+].code = $loinc#8462-4
 * component[=].valueQuantity.value = 120
 * component[=].valueQuantity.system = "http://unitsofmeasure.org"
 * component[=].valueQuantity.code = #mm[Hg]
+* component[=].valueQuantity.unit = "#mm[Hg]"

@@ -30,6 +30,7 @@ Description: "**Observation Category**"
   * #vital-sign-bw "body weight"
   * #vital-sign-bh "body height"
   * #vital-sign-bmi "BMI" "body mass index"
+  * #vital-sign-xyz "xyz" "what other codes are necessary?"
 * #social-history "social history"
 
 

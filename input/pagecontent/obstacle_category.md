@@ -1,13 +1,30 @@
-This obstacle discusses the category for vital signs:
+<style>
+table th {background: #f0b033}
+table tr:nth-child(even) {background: #EEE}
+table tr:nth-child(odd) {background: #FFF}
+</style>
+
+This page discusses the category (and codes) for vital signs in general and blood pressure in specific:
 
 Currently, all vital signs observations are conveyed with the same category code: **vital-signs**.
 
 Then, only the observation code can give some more insight about what has been measured. 
 But here again, only one code is allowed. That requires additional metadata to describe the context.
-In newer profiles, this context has been eliminated.
+In newer profile versions for Core, this context has been eliminated.
 
+### Analysis
 
-### Proposed Solution
+But let's go back and analyse possible ways to express details and their consequences:
+
+| Solution | Consequence |
+| --- | --- |
+| category = vital-sign && code = blood-pressure | There is no detailed information about what blood pressure exactly has been measured. Other attributes must be evaluated (if available). |
+| category = vital-sign && code = specific-bp-measurement | Systems that are unaware of more detailed codes do not find something. |
+| category = vital-sign && codes = {blood-pressure, specific-bp-measurement} | Systems can search for a single code ("blood-pressure") and will find something. But those unware of the specific addition will misinterpret the data. |
+| category = vital-sign-bp && code = specific-bp-measurement | The category as a specialisation of vital-sign will allow for searching all bp measurements, but system will then be able to decide whether they can deal with the specific codes or not. |
+| category = blood-pressure && code = specific-bp-measurement | The category as a sibbling to vital-sign will not find bp measurements if searching for vital-signs. |
+
+### Proposed Solution for Category
 
 It would be better to differentiate between various vital-sign observations.
 The [category](CodeSystem-ObservationCategory.html) could look like:
@@ -30,3 +47,9 @@ The [category](CodeSystem-ObservationCategory.html) could look like:
 
 This hierarchy allows for a simple query for either all blood pressure measurements (category = blood pressure)
 or a specific one (code = xyz).
+
+### Proposed Solution for (LOINC) Codes
+
+Specify Value Sets for blood-pressure (in general) and systolic and diastolic that includes all possible LOINC codes,
+ideally using a filter.
+

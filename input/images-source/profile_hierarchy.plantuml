@@ -1,7 +1,13 @@
 @startuml
 
-package "Core" as pkg0 {
+package "Core (de-identified)" as pkg0 {
 }
+
+package "Identified Core" as pkg0a {
+
+}
+
+pkg0 --> pkg0a : derive
 
 package "US Core" as pkg0us {
 }
@@ -9,14 +15,27 @@ package "US Core" as pkg0us {
 package "DE Core" as pkg0de {
 }
 
-package "Vital Sign Base" as pkg1 {
+package "Vital Sign Base (Advanced)" as pkg1 {
 }
+
+package "Vital Sign Panel" as pkg1a {
+
+}
+
+pkg1 --> pkg1a : derive
 
 package "Blood Pressure" as pkg2 {
 }
 
-package "US Vital Sign Base" as pkg1us {
+package "US Vital Sign Base (Advanced)" as pkg1us {
 }
+
+package "US Vital Sign Panel" as pkg1usA {
+
+}
+
+pkg1us --> pkg1usA : derive
+pkg1a --> pkg1usA : derive
 
 package "US Blood Pressure" as pkg2us {
 }

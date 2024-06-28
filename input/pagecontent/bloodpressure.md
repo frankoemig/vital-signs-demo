@@ -31,6 +31,14 @@ It can be expected, that this will be done later on.
 * sleep status: this has been replaced by consciousness to also allow for "unconscious" as a separate value.
 * event: Some people increase their blood pressure by just seeing a physician, or for other reasons. Not sure whether this is relevant information, but it should not be left out.
 
+#### Special Aspects for "Profile Subsets"
+
+* generic/advanced set allowing to convey all types of blood pressurements
+* constrained to "standard measurements" that are commonly used on panels (so excluding specific ones), eg. at arm + sitting + in rest
+* special clinical measurements, eg. artery
+* average values
+* ...
+
 ### Step 2: Information Model
 
 The aforementioned details are now aggregated in form of classes and linked together.

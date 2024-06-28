@@ -1,12 +1,18 @@
 This IG is a demo to analyse some vital-signs profiles from different FHIR core specifications (in different countries).
-Therefore this guide focuses on the following three:
+Therefore this guide focuses on the first following three.
+The others are mentioned for completeness:
 
 * [Blood Pressure](bloodpressure.html)
 * [Body Weight](body_weight.html)
 * [Body Height](body_height.html)
+* Body Temperature
+* Heart Rate
+* Oxygen Saturation
+* BMI
 * ... (more to be added on request)
 
-> This guide is NOT intended to discuss what aretefact is to be considered being a vital sign.
+> This guide is NOT intended to discuss what aretefact is to be considered being a vital sign
+> although the discussion in some groups demand that.
 
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.
@@ -19,7 +25,9 @@ are also not sufficient or leading to less efforts.
 
 The goal is:
 
-* global content-oriented profiles, by
+* global content-oriented profiles,
+* for generic use,
+* but also constrained for specific purposes, eg. panel only, by
 * cross-country specifications
 * cross-standard specifications
 * cross-language specifications
@@ -102,3 +110,11 @@ It will result in the following structure:
 <div width="400px">
 {% include profile_hierarchy.svg %}
 </div>
+
+This hierarchy has been enhanced mmeanwhile because different expectations arose from discussions in some groups.
+The implementation guide can only support and help to clarify it by enhancing the hierarchy to cover different dimensions:
+
+* multi-country: different countries may want to add different requirements
+* general and specific use: for all types of vital sign measurements, eg. blood pressure measurements, or just a limited subset, eg. standard blood pressure measurements
+* w/ or w/o identification of patients or other involved persons
+* ...

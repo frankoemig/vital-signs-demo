@@ -3,12 +3,16 @@
 
 file "Data Set" as ds 
 
-file "FHIR Profile Hierarchy" as fhir
-file "CDA Templates" as cda
-file "v2.x OBX Profiles + segment group" as v2x
-file "Other Standards" as other
+file "FHIR R4 \nProfile Hierarchy" as fhirR4
+file "FHIR R5 \nProfile Hierarchy" as fhirR5
+file "FHIR R6 \nProfile Hierarchy" as fhirR6
+file "CDA \nTemplates" as cda
+file "v2.x OBX \nProfiles + \nSegment Group(s)" as v2x
+file "Other \nStandards" as other
 
-ds --> fhir : derive
+ds --> fhirR4 : derive
+ds --> fhirR5 : derive
+ds --> fhirR6 : derive
 ds --> cda : derive
 ds --> v2x : derive
 ds --> other : derive

@@ -40,7 +40,7 @@ pkg1a --> pkg1usA : derive
 package "US Blood Pressure" as pkg2us {
 }
 
-package "DE Vital Sign Base" as pkg1de {
+package "DE Vital Sign Base (Advanced)" as pkg1de {
 }
 
 package "DE Blood Pressure" as pkg2de {
@@ -63,5 +63,8 @@ pkg1de --> pkg0de : include
 
 pkg2us --> pkg1us : include
 pkg2de --> pkg1de : include
+
+pkg1usA --> pkg0us : include
+
 
 @enduml

@@ -72,6 +72,8 @@ This way, all artifacts are considered with the same relationship to each other.
 {% include guide_profiling.svg %}
 </div>
 
+Note: Different versions of the same standard has to be treatened as different standards.
+
 ### Overall Process
 
 The details collected within a mindmap has to be transformed and taken over into the next subsequent model.
@@ -115,6 +117,7 @@ This hierarchy has been enhanced mmeanwhile because different expectations arose
 The implementation guide can only support and help to clarify it by enhancing the hierarchy to cover different dimensions:
 
 * multi-country: different countries may want to add different requirements
+* value set constraints: reducing to a single codesystem, eg. just LOINC or Snomed CT, independent from a country
 * general and specific use: for all types of vital sign measurements, eg. blood pressure measurements, or just a limited subset, eg. standard blood pressure measurements
 * w/ or w/o identification of patients or other involved persons
 * ...

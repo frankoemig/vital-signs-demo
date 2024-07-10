@@ -9,7 +9,7 @@ name: Vital-signs
 title: Vital Signs Cross-Country Cross-Language Cross-Paradigm (Demo) IG
 description: Cross-Country, cross-paradigm Demo-Implementation Guide for Vital Signs
 status: draft # draft | active | retired | unknown
-version: 0.3.1
+version: 0.3.2
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -53,6 +53,8 @@ pages:
     title: Body Weight
   body_height.md:
     title: Body Height
+  bmi.md:
+    title: Body Mass Index
   obstacle_openness.md:
     title: Openness of Profiles
   obstacle_category.md:
@@ -97,6 +99,7 @@ menu:
     Blood Pressure: bloodpressure.html
     Body Weight: body_weight.html
     Body Height: body_height.html
+    Body Mass Index: bmi.html
   Obstacles:
     Category of Observations: obstacle_category.html
     Openness of Profiles: obstacle_openness.html

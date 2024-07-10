@@ -1,0 +1,48 @@
+@startmindmap
+
+skinparam svgDimensionStyle false
+
+title Body Mass Index
+
+
++ **BMI**
+--[#ff8] value
+---[#cff] DT: integer
+----_ range: 0-100
+---[#fcc] reference range
+----_ range: 25-30
+----_ age: decimal
+---[#fcc] interpretation
+----[#cff] DT: code
+-----_ critical low
+-----_ low
+-----_ normal
+-----_ high
+-----_ critical high
+
+-- other relevant concepts
+--- [[body_weight.html body weight]]
+----_ necessary for \ncalcualtion
+--- [[body_height.html body height]]
+----_ necessary for \ncalcualtion
+
+++[#ff8] administrative
++++[#fcc] identifier
++++[#fcc] dateTime
+++++[#cff] DT: instant
++++[#fcc] encounter
+
++++[#88f] involved persons
+++++[#88f] subject
++++++_ age
++++++_ gender
+++++[#88f] author
+++++[#88f] performer
+
+++[#ff8] protocol
++++[#ff8] calculation
+
+++[#ff8] comment
++++[#cff] DT: text
+
+@endmindmap

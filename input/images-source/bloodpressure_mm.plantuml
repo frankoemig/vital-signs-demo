@@ -67,7 +67,7 @@ end legend
 
 -- other relevant concepts
 --- <img icon_modifier_extension_complex.png> medication
-----_ influences the results of the measurement
+----_ influences the results \nof the measurement
 --- body weight
 ----_ relevant for a correct interpretation
 
@@ -79,9 +79,9 @@ end legend
 
 +++[#88f] involved persons
 ++++[#88f] subject
-++++[#88f] author
 +++++_ age
 +++++_ gender
+++++[#88f] author
 ++++[#88f] performer
 
 ++[#ff8] protocol
@@ -102,7 +102,7 @@ end legend
 ++++++_ lying with tilt to left
 +++[#ff8] tilt (degree)
 ++++[#cff] DT: integer
-+++[#ff8] <img icon_modifier_extension_complex.png>method
++++[#ff8] <img icon_modifier_extension_complex.png> method
 ++++[#cff] DT: code
 +++[#ff8] <img icon_modifier_extension_complex.png> exertion
 ++++[#cff] DT: code
@@ -114,9 +114,9 @@ end legend
 ++++_ stressed by someone/thing
 +++++_ physician
 +++++_ bear/tiger/snake
-+++[#ff8] <img icon_page_n_i.gif>cuff type
++++[#ff8] <img icon_page_n_i.gif> cuff type
 ++++[#cff] DT: code
-+++[#ff8] <img icon_page_n_i.gif>cuff size
++++[#ff8] <img icon_page_n_i.gif> cuff size
 ++++[#cff] DT: code/integer
 +++[#ff8] consciousness
 ++++[#cff] DT: code

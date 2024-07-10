@@ -8,7 +8,7 @@ The others are mentioned for completeness:
 * Body Temperature
 * Heart Rate
 * Oxygen Saturation
-* BMI
+* [BMI](bmi.html)
 * ... (more to be added on request)
 
 > This guide is NOT intended to discuss what aretefact is to be considered being a vital sign
@@ -121,3 +121,11 @@ The implementation guide can only support and help to clarify it by enhancing th
 * general and specific use: for all types of vital sign measurements, eg. blood pressure measurements, or just a limited subset, eg. standard blood pressure measurements
 * w/ or w/o identification of patients or other involved persons
 * ...
+
+### Links/Further References
+
+* https://sparked.csiro.au/wp-content/uploads/2024/04/Sparked-AUCDI-R1-Draft-for-Community-Comment-V1.0.pdf
+* https://sparked.csiro.au/index.php/sparked-products-resources/australian-core-data-for-interoperability/aucdi-release-1-community-comment/
+* https://build.fhir.org/ig/aehrc/logical-model-web/index.html
+  * https://build.fhir.org/ig/aehrc/logical-model-web/logicalModel.html
+  

@@ -1,0 +1,77 @@
+@startuml
+
+title BP Profile(s) in the Vital Sign Hierarchy
+
+class "Vital Sign" as vs {
+    status: code
+    category: code = vital-sign
+    code: code
+    observationDate: instant|period
+}
+
+class "**(General) Blood Pressure**" as bp {
+    category: code = vital-sign-bp
+    systolicBP: positiveInt
+    diastolicBP: positiveInt
+    meanArterialBP: positiveInt
+    pulseBP: positiveInt
+    exertion: quantity
+    position: code
+    consciousness: code
+    interpretation: code
+    date: instant | period
+    ...
+}
+
+class "Body Weight" as bw {
+    category: code = vital-sign-bw
+}
+
+class "Medication" as medic 
+
+class "Blood Pressure Spot" as bps {
+    date: instant
+}
+
+class "Blood Pressure Panel" as bpp {
+
+}
+
+class "Blood Pressure 24h Average" as bpa {
+    datePeriod: Period
+}
+
+class "Patient" as pat
+class "Author" as aut
+
+class "US Core Spot BP" as usbp1 
+class "DE Core BP" as debp
+vs <|-- bpp
+vs <|-- bw
+
+class "US Core Avg BP" as usbp2 
+
+vs -right- pat : subject >
+vs -left- aut : author >
+
+bp <|-- bps
+bp <|-- bpa
+
+bpa <|-- usbp2
+
+bps <|-- usbp1
+bps <|-- debp
+bps <|-- bpp
+
+bp "0..*" ..left. "0..1" bw
+bp .right.. "0..*" medic
+
+class "DE KBV BP" as dekbvbp
+class "DE MII BP" as demiibp
+class "DE Standard BP for EHR" as deehrbp
+
+debp <|-- dekbvbp
+debp <|-- demiibp
+debp <|-- deehrbp
+
+@enduml

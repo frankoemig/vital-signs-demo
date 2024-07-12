@@ -9,7 +9,7 @@ name: Vital-signs
 title: Vital Signs Cross-Country Cross-Language Cross-Paradigm (Demo) IG
 description: Cross-Country, cross-paradigm Demo-Implementation Guide for Vital Signs
 status: draft # draft | active | retired | unknown
-version: 0.3.2
+version: 0.3.3
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2024+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
@@ -63,6 +63,8 @@ pages:
     title: Support of Elements
   obstacle_languages.md:
     title: Languages
+  obstacle_loinc.md:
+    title: Use of LOINC
   download.md:
     title: Download
 #   implementation.xml:
@@ -104,6 +106,7 @@ menu:
     Category of Observations: obstacle_category.html
     Openness of Profiles: obstacle_openness.html
     Languages: obstacle_languages.html
+    Use of LOINC: obstacle_loinc.html
     Suppport of Elements: obstacle_support.html
   Artifacts: artifacts.html
   Download: download.html
@@ -183,6 +186,7 @@ groups:
     - StructureDefinition/BloodPressure
     - StructureDefinition/BodyWeight
     - StructureDefinition/BodyHeight
+    - StructureDefinition/BodyMassIndex
   GroupB:
     name: v2.x LMs
     description: The following Logical Models are created for transmitting the data using v2.x
@@ -194,6 +198,10 @@ groups:
     - StructureDefinition/OBXpulsePressureBP
     - StructureDefinition/OBXexertion
     - StructureDefinition/OBXlocation
+    - StructureDefinition/OBXclothing
+    - StructureDefinition/OBXeating
+    - StructureDefinition/OBXmainBW
+    - StructureDefinition/OBXbodyweightsegmentgroup
   GroupC:
     name: Supplementary Models
     description: The following models only needed to help with the specification itself.

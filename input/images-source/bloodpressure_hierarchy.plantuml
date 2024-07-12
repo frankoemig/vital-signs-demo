@@ -9,7 +9,7 @@ class "Vital Sign" as vs {
     observationDate: instant|period
 }
 
-class "**Blood Pressure**" as bp {
+class "**(General) Blood Pressure**" as bp {
     category: code = vital-sign-bp
     systolicBP: positiveInt
     diastolicBP: positiveInt
@@ -19,6 +19,7 @@ class "**Blood Pressure**" as bp {
     position: code
     consciousness: code
     interpretation: code
+    date: instant | period
     ...
 }
 
@@ -32,6 +33,10 @@ class "Blood Pressure Spot" as bps {
     date: instant
 }
 
+class "Blood Pressure Panel" as bpp {
+
+}
+
 class "Blood Pressure 24h Average" as bpa {
     datePeriod: Period
 }
@@ -41,13 +46,13 @@ class "Author" as aut
 
 class "US Core Spot BP" as usbp1 
 class "DE Core BP" as debp
-vs <|-- bp
+vs <|-- bpp
 vs <|-- bw
 
 class "US Core Avg BP" as usbp2 
 
 vs -right- pat : subject >
-vs -- aut : author >
+vs -left- aut : author >
 
 bp <|-- bps
 bp <|-- bpa
@@ -56,6 +61,7 @@ bpa <|-- usbp2
 
 bps <|-- usbp1
 bps <|-- debp
+bps <|-- bpp
 
 bp "0..*" ..left. "0..1" bw
 bp .right.. "0..*" medic

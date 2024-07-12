@@ -15,7 +15,7 @@ Alias: $category = http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory
 Profile: USCoreModifiedBloodPressure2Profile
 Parent: us-core-modified-vital-signs
 Id: us-core-modified-blood-pressure-2
-Title: "US Core Blood Pressure Profile (modified, alternative version)"
+Title: "US Core Blood Pressure Profile (modified, using more components, alternative version)"
 
 Description: """
 **This is the modified version - not yet fully complete/verified!!!!**

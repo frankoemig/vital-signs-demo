@@ -66,7 +66,7 @@ Description: """
 Profile: USCoreModifiedBloodPressureProfile
 Parent: us-core-modified-vital-signs
 Id: us-core-modified-blood-pressure
-Title: "US Core Blood Pressure Profile (modified)"
+Title: "US Core Blood Pressure Profile (modified, using extensions)"
 
 Description: """
 US Core Blood Pressure Profile inherits from the US Core Vital Signs Profile. 
@@ -128,30 +128,34 @@ Providing the floor for standards development for specific use cases promotes in
 * component ^slicing.rules = #open
 * component ^short = "Component observations"
 * component contains
-    SystolicBPxx 1..1 MS and
+    SystolicBP 1..1 MS and
     DiastolicBP 0..1 MS and
 	MeanArterialBP 0..1 MS and
 	PulsePressureBP 0..1
 
-* component[SystolicBPxx] ^short = "Systolic Blood Pressure"
-* component[SystolicBPxx].code 1..1 MS
-* component[SystolicBPxx].code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (required)
-* component[SystolicBPxx].code ^short = "Systolic Blood Pressure Code"
-* component[SystolicBPxx].valueQuantity only Quantity
-* component[SystolicBPxx].valueQuantity MS
-* component[SystolicBPxx].valueQuantity ^short = "Vital Sign Component Value"
-* component[SystolicBPxx].valueQuantity.value 1..1 MS
-* component[SystolicBPxx].valueQuantity.value only decimal
-* component[SystolicBPxx].valueQuantity.unit 0..1 MS
-* component[SystolicBPxx].valueQuantity.unit only string
-* component[SystolicBPxx].valueQuantity.system 1..1 MS
-* component[SystolicBPxx].valueQuantity.system only uri
-* component[SystolicBPxx].valueQuantity.system = "http://unitsofmeasure.org" (exactly)
-* component[SystolicBPxx].valueQuantity.code 1..1 MS
-* component[SystolicBPxx].valueQuantity.code only code
-* component[SystolicBPxx].valueQuantity.code = #mm[Hg] (exactly)
+* component[SystolicBP] ^short = "Systolic Blood Pressure"
+  * extension contains SystolicExt named systolicCategory 0..1 MS 
+  * extension[systolicCategory] ^short = "systolic"  
+* component[SystolicBP].code 1..1 MS
+* component[SystolicBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-systolic-blood-pressure-code (required)
+* component[SystolicBP].code ^short = "Systolic Blood Pressure Code"
+* component[SystolicBP].valueQuantity only Quantity
+* component[SystolicBP].valueQuantity MS
+* component[SystolicBP].valueQuantity ^short = "Vital Sign Component Value"
+* component[SystolicBP].valueQuantity.value 1..1 MS
+* component[SystolicBP].valueQuantity.value only decimal
+* component[SystolicBP].valueQuantity.unit 0..1 MS
+* component[SystolicBP].valueQuantity.unit only string
+* component[SystolicBP].valueQuantity.system 1..1 MS
+* component[SystolicBP].valueQuantity.system only uri
+* component[SystolicBP].valueQuantity.system = "http://unitsofmeasure.org" (exactly)
+* component[SystolicBP].valueQuantity.code 1..1 MS
+* component[SystolicBP].valueQuantity.code only code
+* component[SystolicBP].valueQuantity.code = #mm[Hg] (exactly)
 
 * component[DiastolicBP] ^short = "Diastolic Blood Pressure"
+  * extension contains DiastolicExt named diastolicCategory 0..1 MS 
+  * extension[diastolicCategory] ^short = "diastolic"
 * component[DiastolicBP].code 1..1 MS
 * component[DiastolicBP].code from http://vitals.oemig.de/fhir/ValueSet/us-core-diastolic-blood-pressure-code (required)
 * component[DiastolicBP].code ^short = "Diastolic Blood Pressure Code"
@@ -207,6 +211,28 @@ Providing the floor for standards development for specific use cases promotes in
 * component[PulsePressureBP].valueQuantity.code = #mm[Hg] (exactly)
 
 
+
+
+
+Extension: SystolicExt
+Id:        systolicExt
+Title:     "Systolic"
+Description: "Systolic"
+// Limit the context to Observations
+* ^context[+].type = #element
+* ^context[=].expression = "StructureDefinition"
+* value[x] only CodeableConcept
+* value[x] from http://vitals.oemig.de/fhir/ValueSet/ObservationCategory (required)
+
+Extension: DiastolicExt
+Id:        diastolicExt
+Title:     "Diastolic"
+Description: "Disastolic"
+// Limit the context to Observations
+* ^context[+].type = #element
+* ^context[=].expression = "StructureDefinition"
+* value[x] only CodeableConcept
+* value[x] from http://vitals.oemig.de/fhir/ValueSet/ObservationCategory (required)
 
 
 

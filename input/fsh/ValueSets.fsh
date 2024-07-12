@@ -24,6 +24,8 @@ Description: """Value Set for Blood Pressure Category"""
 
 * ^compose.include[+].system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCategory"
 * ^compose.include[=].concept[+].code = #vital-sign-bp
+* ^compose.include[=].concept[+].code = #vital-sign-sbp
+* ^compose.include[=].concept[+].code = #vital-sign-dbp
 
 
 

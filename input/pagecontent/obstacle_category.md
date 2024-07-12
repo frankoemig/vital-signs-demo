@@ -39,6 +39,8 @@ The [category](CodeSystem-ObservationCategory.html) could look like:
   * caring
 * vital-signs
   * blood pressure
+    * systolic
+    * diastolic
   * body weight
   * body height
   * BMI
@@ -52,4 +54,9 @@ or a specific one (code = xyz).
 
 Specify Value Sets for blood-pressure (in general) and systolic and diastolic that includes all possible LOINC codes,
 ideally using a filter.
+
+### Open Questionss
+
+After continuing the discussions, it appears that only a few specialisations of blood pressure belong to the vital sign category.
+Therefore, the above listed hierarchy must be modified. It has to be discussed how!
 

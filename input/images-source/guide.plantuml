@@ -10,6 +10,13 @@ package "Vendor" as pkg {
 }
 
 cloud "Mindmap" as mm
+Note right
+This should be accompanied by simple natural language
+senctences (small statements) explaining the relationships
+and consistency conditions!
+This will help to create (and verify) the information model.
+end note
+
 :Standards Expert/\nComputer Scientist: as se
 
 artifact "Information Model" as im {

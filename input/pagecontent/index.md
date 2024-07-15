@@ -49,15 +49,23 @@ on a higher level. The targets are to present:
 ### Process Model
 
 The following drawing is a rough idea of how the resulting profiles should be created.
-The red line guides you:
+The red line (arrows) guides you:
 
 <div width="400px">
 {% include guide.svg %}
 </div>
 
 Domain experts have to provide the necessary domain knowledge which has to be formalized accordingly.
-That results in a set of related classes in an information model.
-This information model should not only influence the data model and applicatin a vendor is developing, 
+The mindmap is just a high-level means to summarize all details that are somehow relevant.
+Because complex models (in a formal representation) are not that easy to understand, a better way has to be found.
+Therefore, the domain experts have to equip the mindmap with additional details that are best represented
+in form of simple natural language sentences.
+For example, "every value is measured a certain single point in time."
+Or "each measured value has a unit."
+
+Both, the mindmap and the explanation, must be translated into a set of related classes in an information model,
+ideally using formal representations like BPMN.
+This information model should not only influence the data model and application a vendor is developing, 
 but also the derived data set that is the foundation for the profile (hierarchy).
 
 ### Profiling: From data set to profiles!

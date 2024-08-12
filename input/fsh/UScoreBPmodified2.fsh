@@ -65,8 +65,11 @@ Description: """
 	MeanArterialBP 0..1 MS and
 	PulsePressureBP 0..1 and
 	BodyPosition 0..1 and
+	Location 0..1 and
 	Consciousness 0..1 and
-	Exertion 0..1
+	Exertion 0..1 and 
+	CuffType 0..1 and
+	CuffSize 0..1
 
 * component[SystolicBP] ^short = "Systolic Blood Pressure"
 * component[SystolicBP].code 1..1 MS
@@ -157,6 +160,21 @@ Description: """
 
 //* component[BodyPosition].valueCodeableConcept.coding.code = #mm[Hg] (exactly)
 
+* component[Location] ^short = "Location of the Body during measurement"
+* component[Location].code 1..1 MS
+* component[Location].code ^short = "Location Code"
+* component[Location].code from http://vitals.oemig.de/fhir/ValueSet/ObservationCodes (required)
+* component[Location].code.coding.code = #bodyPosition
+* component[Location].valueCodeableConcept.coding only Coding
+* component[Location].valueCodeableConcept.coding MS
+* component[Location].valueCodeableConcept.coding ^short = "Location of the Body"
+* component[Location].valueCodeableConcept.coding.system 1..1 MS
+* component[Location].valueCodeableConcept.coding.system only uri
+* component[Location].valueCodeableConcept.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/Location" (exactly)
+* component[Location].valueCodeableConcept.coding.code 1..1 MS
+* component[Location].valueCodeableConcept.coding.code from http://vitals.oemig.de/fhir/ValueSet/Location (required)
+
+
 * component[Consciousness] ^short = "Consciousness during measurement"
 * component[Consciousness].code 1..1 MS
 * component[Consciousness].code ^short = "Consciousness Code"
@@ -171,16 +189,30 @@ Description: """
 * component[Consciousness].valueCodeableConcept.coding.code 1..1 MS
 * component[Consciousness].valueCodeableConcept.coding.code from http://vitals.oemig.de/fhir/ValueSet/Consciousness (required)
 
-* component[Exertion] ^short = "Exertion during measurement"
-* component[Exertion].code 1..1 MS
-* component[Exertion].code ^short = "Exertion Code"
-* component[Exertion].code.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes"
-* component[Exertion].code.coding.code = #exertion
-* component[Exertion].valueCodeableConcept.coding only Coding
-* component[Exertion].valueCodeableConcept.coding MS
-* component[Exertion].valueCodeableConcept.coding ^short = "Exertion"
-* component[Exertion].valueCodeableConcept.coding.system 1..1 MS
-* component[Exertion].valueCodeableConcept.coding.system only uri
-* component[Exertion].valueCodeableConcept.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/Exertion" (exactly)
-* component[Exertion].valueCodeableConcept.coding.code 1..1 MS
-* component[Exertion].valueCodeableConcept.coding.code from http://vitals.oemig.de/fhir/ValueSet/Exertion (required)
+* component[CuffType] ^short = "Cuff Type used during measurement"
+* component[CuffType].code 1..1 MS
+* component[CuffType].code ^short = "Cuff Type Code"
+* component[CuffType].code.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes"
+* component[CuffType].code.coding.code = #cuffType
+* component[CuffType].valueCodeableConcept.coding only Coding
+* component[CuffType].valueCodeableConcept.coding MS
+* component[CuffType].valueCodeableConcept.coding ^short = "Cuff Type"
+* component[CuffType].valueCodeableConcept.coding.system 1..1 MS
+* component[CuffType].valueCodeableConcept.coding.system only uri
+* component[CuffType].valueCodeableConcept.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/CuffType" (exactly)
+* component[CuffType].valueCodeableConcept.coding.code 1..1 MS
+* component[CuffType].valueCodeableConcept.coding.code from http://vitals.oemig.de/fhir/ValueSet/CuffType (required)
+
+* component[CuffSize] ^short = "Cuff Size used during measurement"
+* component[CuffSize].code 1..1 MS
+* component[CuffSize].code ^short = "Cuff Size Code"
+* component[CuffSize].code.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/ObservationCodes"
+* component[CuffSize].code.coding.code = #cuffSize
+* component[CuffSize].valueCodeableConcept.coding only Coding
+* component[CuffSize].valueCodeableConcept.coding MS
+* component[CuffSize].valueCodeableConcept.coding ^short = "CuffSize"
+* component[CuffSize].valueCodeableConcept.coding.system 1..1 MS
+* component[CuffSize].valueCodeableConcept.coding.system only uri
+* component[CuffSize].valueCodeableConcept.coding.system = "http://vitals.oemig.de/fhir/CodeSystem/CuffSize" (exactly)
+* component[CuffSize].valueCodeableConcept.coding.code 1..1 MS
+* component[CuffSize].valueCodeableConcept.coding.code from http://vitals.oemig.de/fhir/ValueSet/CuffSize (required)

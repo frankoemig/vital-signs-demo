@@ -11,8 +11,18 @@ The others are mentioned for completeness:
 * [BMI](bmi.html)
 * ... (more to be added on request)
 
-> This guide is NOT intended to discuss what aretefact is to be considered being a vital sign
+> This guide is NOT intended to discuss what aretefact is to be considered being a **vital sign**
 > although the discussion in some groups demand that.
+> As demonstrated with the following drawing, on some yet considered observations are **real** vital signs.
+> Why? Some measurements like body weight are good to know and to consider when examining the vital status
+> of a person, but are definitely **not** an indication for being a vital and living person. 
+> Good examples are body weight and height.
+> Others, like blood pressure, contain a lot of different measurements, for example doing some excercising,
+> so that only a subset can be considered a vital sign.
+> <red>Therefore, a different profile hierarchy must be established! But this is another discussion.</red>
+
+![Process](vitalsigns.png){:width="600px"}
+<br clear="all"/>  
 
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.
@@ -32,8 +42,11 @@ The goal is:
 * cross-standard specifications
 * cross-language specifications
 
-The idea behind this guide is to propose an alternative way to create profiles that enable interoperability
-on a higher level. The targets are to present:
+### Primary Purpose of this Guide
+
+The idea - and primary purpose - behind this (small) guide is to propose an alternative way 
+to create profiles that enable interoperability on a higher level. 
+The targets are to present:
 
 * the underlying data associated with those items
 * an information model that aggregates the details and established the necessary relationships

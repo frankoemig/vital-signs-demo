@@ -26,7 +26,7 @@ end legend
 -----_ range: 0-400
 ---[#fcc] meanArterialPressure
 ----[#cff] DT: integer
------_ range: 0-400
+-----_ range: 60-100
 ---- duration
 -----[#cff] DT: code
 ------_ 1h

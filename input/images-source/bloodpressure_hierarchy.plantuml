@@ -2,15 +2,19 @@
 
 title BP Profile(s) in the Vital Sign Hierarchy
 
-class "Vital Sign" as vs {
+class "Observation" as obs {
     status: code
-    category: code = vital-sign
+    category: code
     code: code
     observationDate: instant|period
 }
 
+class "Vital Sign" as vs {
+    category: code = vital-sign
+}
+
 class "**(General) Blood Pressure**" as bp {
-    category: code = vital-sign-bp
+    category: code = blood-pressure
     systolicBP: positiveInt
     diastolicBP: positiveInt
     meanArterialBP: positiveInt
@@ -19,12 +23,15 @@ class "**(General) Blood Pressure**" as bp {
     position: code
     consciousness: code
     interpretation: code
-    date: instant | period
     ...
 }
 
+obs <|-- vs
+obs <|-- bp 
+
+
 class "Body Weight" as bw {
-    category: code = vital-sign-bw
+    category: code = body-weight
 }
 
 class "Medication" as medic 
@@ -37,7 +44,7 @@ class "Blood Pressure Panel" as bpp {
 
 }
 
-class "Blood Pressure 24h Average" as bpa {
+class "Blood Pressure Average" as bpa {
     datePeriod: Period
 }
 
@@ -51,8 +58,8 @@ vs <|-- bw
 
 class "US Core Avg BP" as usbp2 
 
-vs -right- pat : subject >
-vs -left- aut : author >
+obs -right- pat : subject >
+obs -left- aut : author >
 
 bp <|-- bps
 bp <|-- bpa
@@ -63,8 +70,8 @@ bps <|-- usbp1
 bps <|-- debp
 bps <|-- bpp
 
-bp "0..*" ..left. "0..1" bw
-bp .right.. "0..*" medic
+bp "0..*" ..right. "0..1" bw
+bp .left.. "0..*" medic
 
 class "DE KBV BP" as dekbvbp
 class "DE MII BP" as demiibp

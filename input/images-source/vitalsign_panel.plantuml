@@ -25,6 +25,11 @@ package "Body Weight (vitalsign)" as pkg3b {
 package "Body Height (vitalsign)" as pkg4b {
 }
 
+package "Blood Pressure (average)" as pkg2c {
+}
+package "Blood Pressure (exertion)" as pkg2d {
+}
+
 
 pkg1 <|-- pkg2b
 pkg1 <|-- pkg3b
@@ -34,5 +39,7 @@ pkg2a <|-up- pkg2b
 pkg3a <|-up- pkg3b
 pkg4a <|-up- pkg4b
 
+pkg2a <|-down- pkg2c
+pkg2a <|-down- pkg2d
 
 @enduml

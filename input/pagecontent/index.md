@@ -29,8 +29,10 @@ In other words, for example, not all possible blood pressure measurements are go
 For example, 24h or 1w average measurements are also bp values, but not for vital signs.
 Therefore, they denote a subset of all possible bp measurements:
 
-![Basics](vitalsign_panel.png){:width="600px"}
-<br clear="all"/>  
+<div width="400px">
+{% include vitalsign_panel.svg %}
+</div>
+ 
 
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.

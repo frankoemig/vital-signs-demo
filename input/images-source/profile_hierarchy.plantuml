@@ -7,8 +7,6 @@ package "Identified Core" as pkg0a {
 
 }
 
-pkg0 --> pkg0a : derive
-
 package "US Core" as pkg0us {
 }
 
@@ -18,13 +16,20 @@ package "DE Core" as pkg0de {
 package "Vital Sign Base (Advanced)" as pkg1 {
 }
 
+pkg1 --> pkg0a : derive
+
 package "Vital Sign Panel" as pkg1a {
 
 }
 
-pkg1 --> pkg1a : derive
+pkg1 "1..*" --o "0..*" pkg1a : compose
 
 package "Blood Pressure" as pkg2 {
+}
+
+package "Body Weight" as pkg3 {
+}
+package "Body Height" as pkg4 {
 }
 
 package "US Vital Sign Base (Advanced)" as pkg1us {
@@ -34,7 +39,7 @@ package "US Vital Sign Panel" as pkg1usA {
 
 }
 
-pkg1us --> pkg1usA : derive
+pkg1us "1..*" --o "0..*" pkg1usA : compose
 pkg1a --> pkg1usA : derive
 
 package "US Blood Pressure" as pkg2us {
@@ -47,7 +52,6 @@ package "DE Blood Pressure" as pkg2de {
 }
 
 pkg0 --> pkg0us : derive
-pkg0 --> pkg0de : derive
 
 pkg1 --> pkg1us : derive
 pkg1 --> pkg1de : derive
@@ -55,8 +59,10 @@ pkg1 --> pkg1de : derive
 pkg2 --> pkg2us : derive
 pkg2 --> pkg2de : derive
 
-pkg1 -left-> pkg0 : include
-pkg2 -left-> pkg1 : include
+pkg1 -down-> pkg0 : derive
+pkg1 -down-> pkg2 : derive
+pkg1 -down-> pkg3 : derive
+pkg1 -down-> pkg4 : derive
 
 pkg1us --> pkg0us : include
 pkg1de --> pkg0de : include

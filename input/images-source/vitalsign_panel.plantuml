@@ -1,0 +1,38 @@
+@startuml
+
+
+package "Vital Sign Panel" as pkg {
+
+}
+
+package "Vital Sign Measurement" as pkg1 {
+
+}
+
+pkg o-- pkg1 : contains
+
+package "Blood Pressure Measurement" as pkg2a {
+}
+package "Body Weight Measurement" as pkg3a {
+}
+package "Body Height Measurement" as pkg4a {
+}
+
+package "Blood Pressure (vitalsign)" as pkg2b {
+}
+package "Body Weight (vitalsign)" as pkg3b {
+}
+package "Body Height (vitalsign)" as pkg4b {
+}
+
+
+pkg1 <|-- pkg2b
+pkg1 <|-- pkg3b
+pkg1 <|-- pkg4b
+
+pkg2a <|-up- pkg2b
+pkg3a <|-up- pkg3b
+pkg4a <|-up- pkg4b
+
+
+@enduml

@@ -24,6 +24,14 @@ The others are mentioned for completeness:
 ![Process](vitalsigns.png){:width="600px"}
 <br clear="all"/>  
 
+So, the panel is the collection of vital sign eligible measurements.
+In other words, for example, not all possible blood pressure measurements are good to express a vital sign.
+For example, 24h or 1w average measurements are also bp values, but not for vital signs.
+Therefore, they denote a subset of all possible bp measurements:
+
+![Basics](vitalsign_panel.png){:width="600px"}
+<br clear="all"/>  
+
 Those three are selected because they are simple, comprehensive and easy to understand.
 And those are in principle **country independent**, i.e. they should be the same world-wide.
 The target of this guide is **not** to specify a set of complete and correct profiles,

@@ -26,7 +26,7 @@ The others are mentioned for completeness:
 
 So, the panel is the collection of vital sign eligible measurements.
 In other words, for example, not all possible blood pressure measurements are good to express a vital sign.
-For example, 24h or 1w average measurements are also bp values, but not for vital signs.
+For example, 24h or 1w average measurements are also bp values, so is under exertion, but not good for vital signs.
 Therefore, they denote a subset of all possible bp measurements:
 
 <div width="400px">

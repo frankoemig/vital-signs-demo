@@ -48,6 +48,8 @@ class "Blood Pressure Average" as bpa {
     datePeriod: Period
 }
 
+bpa "0..*" o-right-- "0..*" bps
+
 class "Patient" as pat
 class "Author" as aut
 

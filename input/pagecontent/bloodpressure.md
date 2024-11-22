@@ -143,6 +143,7 @@ As a draft:
 | OBX | 0..1 | sleeping status | CWE | n/a | #sleepingStatus |
 | OBX | 0..1 | cuff type | CWE | n/a | #cuffType |
 | OBX | 0..1 | cuff size | CWE | n/a | #cuffSize |
+| OBX | 0..1 | anesthesia | CWE | n/a | #anesthesia |
 
 Notes:
 

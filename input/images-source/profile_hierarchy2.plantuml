@@ -1,0 +1,34 @@
+@startuml
+
+object "Base MustSupport Profile" as obj1 {
+    mustSupport on category, status, effectiveDate, interpretation, ..
+    obligation SHALL handle
+}
+
+object "Single-Value Profile" as obj2 {
+    mustSupport on value
+    obligation SHALL handle exactly
+    mustSupport on value.unit
+    obligation SHALL handle equivalent
+}
+
+object "Multi-Value Profile" as obj3 {
+    mustSupport on component
+    mustSupport on component.value
+    mustSupport on component.value.value
+    obligation SHALL handle exactly
+    mustSupport on component.value.unit
+    obligation SHALL handle equivalent
+}
+
+obj1 <-- obj2 : derived from
+obj1 <-- obj3 : derived from
+
+object "Blood Pressure" as obj4
+object "Body Weight" as obj5
+
+obj3 <-- obj4  : derived from
+obj2 <-- obj5  : derived from
+
+
+@enduml

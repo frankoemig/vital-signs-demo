@@ -106,6 +106,9 @@ Description: "This is the Logical Model for **Blood Pressure**"
 
 * exertion[x] 0..1 integer or CodeableConcept "physical activity (measured in Watts or as coded information)" 
 
+* anaesthesia 0..1 CodeableConcept "Anaesthesia of patient during measurement"
+* anaesthesia from http://vitals.oemig.de/fhir/ValueSet/Anaesthesia (required)
+
 * bodyWeight 0..1 BodyWeight "body weight"
 
 * medication[x] 0..1 boolean or Reference(MedicationStatement) "medication to be considered, minimum is the indication that there is some kind of medication"
@@ -248,6 +251,43 @@ Description: "**Consciousness**"
 * insert HeaderDetailRules
 
 * include codes from system http://vitals.oemig.de/fhir/CodeSystem/Consciousness
+
+
+
+
+CodeSystem: Anaesthesia
+Id: Anaesthesia
+Title: "Anaesthesia"
+Description: "**Anaesthesia**"
+
+* ^url = "http://vitals.oemig.de/fhir/CodeSystem/Anaesthesia"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* ^caseSensitive = false
+* ^valueSet = "http://vitals.oemig.de/fhir/ValueSet/Anaesthesia"
+* ^hierarchyMeaning = #is-a
+* ^compositional = false
+* ^versionNeeded = false
+* ^content = #complete
+
+* #before "Measured shortly before anaesthesia."
+* #during "Measured shortly during anaesthesia."
+* #after "Measured shortly after anaesthesia."
+
+
+ValueSet: Anaesthesia
+Id: Anaesthesia
+Title: "Anaesthesia"
+Description: "**Anaesthesia**"
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/Anaesthesia"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* include codes from system http://vitals.oemig.de/fhir/CodeSystem/Anaesthesia
 
 
 

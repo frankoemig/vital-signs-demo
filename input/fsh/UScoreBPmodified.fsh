@@ -294,7 +294,8 @@ Description: "This is a very draft example of a bloodpressure measurement and st
 
 * effectiveDateTime = "2024-05-12T09:30:10+01:00"
 * note.text = "ok"
-//* subject = Reference(Patient/1)
+* subject = Reference(Patient/pat1)
+* performer = Reference(Practitioner/physician1)
 
 * component[+].code = $loinc#8480-6
 * component[=].valueQuantity.value = 80
@@ -307,3 +308,18 @@ Description: "This is a very draft example of a bloodpressure measurement and st
 * component[=].valueQuantity.system = "http://unitsofmeasure.org"
 * component[=].valueQuantity.code = #mm[Hg]
 * component[=].valueQuantity.unit = "#mm[Hg]"
+
+
+Instance: Patient1
+InstanceOf: Patient
+Description: "Sample Patient to fulfill reference"
+
+* id = "pat1"
+* name.given = "Smith"
+
+Instance: Practitioner1
+InstanceOf: Practitioner
+Description: "Sample Practitioner to fulfill reference"
+
+* id = "physician1"
+* name.given = "Dr. Miller"

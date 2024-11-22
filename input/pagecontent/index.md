@@ -141,7 +141,7 @@ may be easier - although more guides have to be maintained.
 It will result in the following structure:
 
 <div width="400px">
-{% include profile_hierarchy.svg %}
+{% include profile_hierarchy1.svg %}
 </div>
 
 This hierarchy has been enhanced mmeanwhile because different expectations arose from discussions in some groups.

@@ -26,3 +26,12 @@ The source code for this Implementation Guide will be found shortly on [IHE GitH
 #### IP Statements
 
 {% include ip-statements.xhtml %}
+
+### Links to Other Guides
+
+
+- [CIMI: Vital Signs](https://build.fhir.org/ig/HL7/cimi-vital-signs/)
+- US Core [Artifacts](https://build.fhir.org/ig/HL7/US-Core/profiles-and-extensions.html#profiles)
+  - https://www.hl7.org/fhir/us/vitals/STU1
+  - https://build.fhir.org/ig/HL7/US-Core 
+- AU/NZ IG

@@ -106,6 +106,8 @@ end legend
 ++++[#cff] DT: code
 +++[#ff8] <img icon_modifier_extension_complex.png> exertion
 ++++[#cff] DT: code
+++++[#cff] DT: PQ
++++++_ Watts
 +++[#ff8] aspiration
 ++++_ expiration
 ++++_ inspiration
@@ -116,13 +118,18 @@ end legend
 +++++_ bear/tiger/snake
 +++[#ff8] <img icon_page_n_i.gif> cuff type
 ++++[#cff] DT: code
-+++[#ff8] <img icon_page_n_i.gif> cuff size
++++[#ff8] <img icon_modifier_extension_complex.png> cuff size
 ++++[#cff] DT: code/integer
 +++[#ff8] consciousness
 ++++[#cff] DT: code
 +++++_ awake
 +++++_ unconscious
 +++++_ sleeping
++++[#ff8] <img icon_modifier_extension_complex.png> anaesthesia
+++++[#cff] DT: code
++++++_ before
++++++_ during
++++++_ after
 
 ++[#ff8] comment
 +++[#cff] DT: text

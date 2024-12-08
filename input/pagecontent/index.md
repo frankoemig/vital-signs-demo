@@ -2,14 +2,18 @@ This IG is a demo to analyse some vital-signs profiles from different FHIR core 
 Therefore this guide focuses on the first following three.
 The others are mentioned for completeness:
 
-* [Blood Pressure](bloodpressure.html)
-* [Body Weight](body_weight.html)
-* [Body Height](body_height.html)
+* [Blood Pressure](https://build.fhir.org/ig/frankoemig/bloodpressure/index.html)
+* [Body Weight](https://build.fhir.org/ig/frankoemig/bodyweight/index.html)
+* [Body Height](https://build.fhir.org/ig/frankoemig/bodyheight/index.html)
 * Body Temperature
 * Heart Rate
 * Oxygen Saturation
 * [BMI](bmi.html)
 * ... (more to be added on request)
+
+
+> Per OO discussion on Dec. 6th, 2024 the blood pressure, body weight and body height information models
+> and implementation guides have been moved into individual IGs.
 
 > This guide is NOT intended to discuss what aretefact is to be considered being a **vital sign**
 > although the discussion in some groups demand that.

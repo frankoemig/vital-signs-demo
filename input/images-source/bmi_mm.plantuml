@@ -21,9 +21,9 @@ title Body Mass Index
 -----_ critical high
 
 -- other relevant concepts
---- [[body_weight.html body weight]]
+--- [[https://build.fhir.org/ig/frankoemig/bodyweight/index.html body weight]]
 ----_ necessary for \ncalcualtion
---- [[body_height.html body height]]
+--- [[https://build.fhir.org/ig/frankoemig/bodyheight/index.html body height]]
 ----_ necessary for \ncalcualtion
 
 ++[#ff8] administrative

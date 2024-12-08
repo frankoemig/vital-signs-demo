@@ -7,7 +7,7 @@ makes us of a very limited set of codes.
 But for several components with many codes it becomes tedious (and ineffective), but not impossible,
 to identify the individual occurences.
 
-[One possible but yet incomplete representation](StructureDefinition-us-core-modified-blood-pressure-2.html) for 
+[One possible but yet incomplete representation](https://build.fhir.org/ig/frankoemig/bloodpressure/StructureDefinition-us-core-modified-blood-pressure-2.html) for 
 the general blood pressure mesurement profile,
 i.e. the one NOT using extensions, demonstrates quite a lot:
 

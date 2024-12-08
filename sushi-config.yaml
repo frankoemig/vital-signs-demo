@@ -47,12 +47,6 @@ publisher:
 pages:
   index.md:
     title: Vital Signs
-  bloodpressure.md:
-    title: Blood Pressure
-  body_weight.md:
-    title: Body Weight
-  body_height.md:
-    title: Body Height
   bmi.md:
     title: Body Mass Index
   valueset.md:
@@ -104,9 +98,6 @@ pages:
 menu:
   Home: index.html
   Content:
-    Blood Pressure: bloodpressure.html
-    Body Weight: body_weight.html
-    Body Height: body_height.html
     Body Mass Index: bmi.html
   Obstacles:
     Category of Observations: obstacle_category.html
@@ -192,53 +183,7 @@ groups:
     name: Abstract Logical Models for Content
     description: Following the LMs independent from any standard.
     resources:
-    - StructureDefinition/BloodPressure
-    - StructureDefinition/BodyWeight
-    - StructureDefinition/BodyHeight
     - StructureDefinition/BodyMassIndex
-  GroupB:
-    name: v2.x LMs
-    description: The following Logical Models are created for transmitting the data using v2.x
-    resources:
-    - StructureDefinition/OBXmainBP
-    - StructureDefinition/OBXsystolicBP
-    - StructureDefinition/OBXdiastolicBP
-    - StructureDefinition/OBXmeanArterialBP
-    - StructureDefinition/OBXpulsePressureBP
-    - StructureDefinition/OBXexertion
-    - StructureDefinition/OBXlocation
-    - StructureDefinition/OBXclothing
-    - StructureDefinition/OBXeating
-    - StructureDefinition/OBXmainBW
-    - StructureDefinition/OBXbodyweightsegmentgroup
-  GroupC:
-    name: Supplementary Models
-    description: The following models only needed to help with the specification itself.
-    resources:
-    - StructureDefinition/AbstractSegment
-    - StructureDefinition/SegmentGroup
-    - StructureDefinition/OBXbloodpressuresegmentgroup
-    - StructureDefinition/PIDsegment
-    - StructureDefinition/OBXsegment
-    - StructureDefinition/RELsegment
-  GroupD:
-    name: V3/CDA LMs
-    description: The following models are used with HL7 V3/CDA. Unfortunately, they are not yet worked out.
-    resources:
-    - StructureDefinition/CDAlm
-  GroupE:
-    name: FHIR Profiles (old/current)
-    description: The FHIR profiles are in current use and requires modification.
-    resources:
-    - StructureDefinition/IsikBloodPressure
-    - StructureDefinition/us-core-blood-pressure
-  GroupF:
-    name: FHIR Profiles (new)
-    description: The proposals for (new(/updated) FHIR profiles.
-    resources:
-    - StructureDefinition/us-core-modified-vital-signs
-    - StructureDefinition/us-core-modified-blood-pressure
-    - StructureDefinition/us-core-modified-blood-pressure-2
 
 # The ImplementationGuide resource defines several other properties
 # not represented above. These properties can be used as-is and

@@ -31,8 +31,8 @@ Description: "This is the Logical Model for **Body Mass Index**"
 
 * effective[x] 0..1 SU date or instant or Period "date of observation" "different representations"
 
-* bodyWeight 0..1 BodyWeight "body weight"
-* bodyHeight 0..1 BodyHeight "body height"
+//* bodyWeight 0..1 BodyWeight "body weight"
+//* bodyHeight 0..1 BodyHeight "body height"
 
 
 * comment 0..1 string "any comment"
@@ -68,4 +68,29 @@ Description: "**Units for calculating BMI**"
 * ^compose.include[+].system = "http://unitsofmeasure.org"
 * ^compose.include[=].concept[+].code = #kg/m2
 
+
+
+
+
+
+ValueSet: Interpretation
+Id: Interpretation
+Title: "Interpretation"
+Description: "**Interpretation** (to be replaced by V3 VS)"
+
+* ^url = "http://vitals.oemig.de/fhir/ValueSet/Interpretation"
+* ^version = "0.1.0"
+
+* insert HeaderDetailRules
+
+* ^compose.include[+].system = "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation"
+* ^compose.include[=].concept[+].code = #A
+* ^compose.include[=].concept[+].code = #AA
+* ^compose.include[=].concept[+].code = #HH
+* ^compose.include[=].concept[+].code = #LL
+* ^compose.include[=].concept[+].code = #H
+* ^compose.include[=].concept[+].code = #HU
+* ^compose.include[=].concept[+].code = #L
+* ^compose.include[=].concept[+].code = #LU
+* ^compose.include[=].concept[+].code = #N
 

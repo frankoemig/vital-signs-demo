@@ -9,9 +9,10 @@ name: Vital-signs
 title: Vital Signs Cross-Country Cross-Language Cross-Paradigm (Demo) IG
 description: Cross-Country, cross-paradigm Demo-Implementation Guide for Vital Signs
 status: draft # draft | active | retired | unknown
-version: 0.6.0
+version: 0.6.1
+date: 2025-01-30
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
-copyrightYear: 2024+
+copyrightYear: 2025+
 releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 # license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
 #jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html

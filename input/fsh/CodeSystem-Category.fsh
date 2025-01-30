@@ -1,5 +1,5 @@
-CodeSystem: ObservationCategory
-Id: ObservationCategory
+CodeSystem: ObservationCategoryCS
+Id: ObservationCategoryCS
 Title: "Observation Category"
 Description: "**Observation Category**"
 
@@ -37,8 +37,8 @@ Description: "**Observation Category**"
 
 
 
-ValueSet: ObservationCategory
-Id: ObservationCategory
+ValueSet: ObservationCategoryVS
+Id: ObservationCategoryVS
 Title: "Observation Category"
 Description: "**Observation Category**"
 

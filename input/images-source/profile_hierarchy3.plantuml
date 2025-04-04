@@ -1,0 +1,25 @@
+@startuml
+
+object "Base MustSupport Profile" as obj1 {
+    mustSupport on category, status, effectiveDate, interpretation, ..
+    conditional mustSupport on value
+    conditional mustSupport on value.unit
+    conditional mustSupport on component
+    conditional mustSupport on component.value
+    conditional mustSupport on component.value.unit
+}
+
+object "Blood Pressure" as obj4
+object "Body Weight" as obj5
+object "Body Height" as obj6
+object "Body Temp" as obj7
+object ".." as obj8
+
+obj1 <-- obj4  : derived from
+obj1 <-- obj5  : derived from
+obj1 <-- obj6  : derived from
+obj1 <-- obj7  : derived from
+obj1 <-- obj8  : derived from
+
+
+@enduml

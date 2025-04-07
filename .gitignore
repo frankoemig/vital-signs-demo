@@ -5,7 +5,9 @@ temp/
 template/
 input-cache/
 output/
-_genonce.sh
 _gencontinuous.bat
 _gencontinuous.sh
+_genonce.sh
 _genonce.bat
+_updatePublisher.bat
+_updatePublisher.sh

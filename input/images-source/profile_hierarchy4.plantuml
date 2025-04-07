@@ -1,0 +1,59 @@
+@startuml
+
+object "Base MustSupport Profile" as obj1 {
+    mustSupport on category, status, effectiveDate, interpretation, ..
+}
+
+object "Single-Value Profile" as obj2 {
+    mustSupport on value
+    mustSupport on value.unit
+}
+
+object "Multi-Value Profile" as obj3 {
+    mustSupport on component
+    mustSupport on component.value
+    mustSupport on component.value.unit
+}
+
+obj1 <-- obj2 : derived from
+obj1 <-- obj3 : derived from
+
+object "Blood Pressure" as obj4
+object "BP Spot" as obj4a
+object "BP Average" as obj4b #fc2
+object "BP Spot Non-Invasive" as obj4aa #dfd
+object "BP Spot Invasive" as obj4ab
+
+object "Body Weight" as obj5 #fc2
+
+object "Body Height" as obj6 #fc2
+
+object "Body Temp" as obj7
+object "Body Temp Core" as obj7a
+object "Body Temp Surface" as obj7b #dfd
+
+object ".." as obj8 #fc2
+
+obj3 <-- obj4  : derived from
+obj2 <-- obj5  : derived from
+obj2 <-- obj6  : derived from
+obj2 <-- obj7  : derived from
+obj2 <-- obj8  : derived from
+
+obj4 <-- obj4a  : derived from
+obj4 <-- obj4b  : derived from
+obj4a <-- obj4aa  : derived from
+obj4a <-- obj4ab  : derived from
+
+obj7 <-- obj7a  : derived from
+obj7 <-- obj7b  : derived from
+
+
+legend
+Legend:
+Artifacts in green seem to be suitable for inclusion in the vital signs guide.
+The ones in orange require futher refinement.
+end legend
+
+
+@enduml

@@ -22,9 +22,9 @@ title Body Mass Index
 
 -- other relevant concepts
 --- [[https://build.fhir.org/ig/frankoemig/bodyweight/index.html body weight]]
-----_ necessary for \ncalcualtion
+----_ necessary for \ncalculation
 --- [[https://build.fhir.org/ig/frankoemig/bodyheight/index.html body height]]
-----_ necessary for \ncalcualtion
+----_ necessary for \ncalculation
 
 ++[#ff8] administrative
 +++[#fcc] identifier

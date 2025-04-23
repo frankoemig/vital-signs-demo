@@ -18,6 +18,9 @@ package "Body Weight Measurement" as pkg3a {
 package "Body Height Measurement" as pkg4a {
 }
 
+package "BMI" as pkg5 {
+}
+
 package "Blood Pressure (vitalsign)" as pkg2b {
 }
 package "Body Weight (vitalsign)" as pkg3b {
@@ -33,6 +36,7 @@ package "Blood Pressure (exertion)" as pkg2d {
 
 pkg1 <|-- pkg2b
 pkg1 <|-- pkg3b
+pkg1 <|-- pkg5
 pkg1 <|-- pkg4b
 
 pkg2a <|-up- pkg2b
@@ -41,5 +45,9 @@ pkg4a <|-up- pkg4b
 
 pkg2a <|-down- pkg2c
 pkg2a <|-down- pkg2d
+
+pkg5 o-- "0..1" pkg4b
+pkg5 o-- "0..1" pkg3b
+
 
 @enduml

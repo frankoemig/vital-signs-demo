@@ -1,0 +1,33 @@
+@startuml
+
+title Body Mass Index
+
+class "[[StructureDefinition-BMI.html BMI]]" as bmi {
+    value: integer
+    interpretation: code
+    dateTime: instant
+}
+
+class "Subject" as pat
+class "Author" as aut
+class "Performer" as perf
+
+class "Reference Range" as rr {
+    low
+    high
+    age
+}
+
+class "[[https://build.fhir.org/ig/frankoemig/bodyweight/ Body Weight]]" as bw
+class "[[https://build.fhir.org/ig/frankoemig/bodyheight/ Body Height]]" as bh
+
+bmi -left- "1" pat
+bmi -- "0..1" aut
+bmi -- "0..1" perf 
+
+bmi *-- "0..1" rr
+
+bmi -right- "0..1" bh
+bmi -right- "0..1" bw
+
+@enduml

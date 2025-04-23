@@ -7,6 +7,7 @@ The others are mentioned for completeness:
 * [Body Height](https://build.fhir.org/ig/frankoemig/bodyheight/index.html)
 * Body Temperature
 * Heart Rate
+* Head Circumference
 * Oxygen Saturation
 * [BMI](bmi.html)
 * ... (more to be added on request)

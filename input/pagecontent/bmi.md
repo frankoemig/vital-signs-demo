@@ -15,7 +15,9 @@ It tries to realize the overall process for creating (FHIR) profiles.
 
 ### Step 2: Information Model
 
-tbd
+<div>
+{% include bmi_im.svg width='600px' %}
+</div>
 
 ### Step 3: Hierarchy for Vital Signs Profiles (informative)
 

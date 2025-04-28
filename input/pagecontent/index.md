@@ -1,3 +1,9 @@
+<style>
+table th {background: #f0b033}
+table tr:nth-child(even) {background: #EEE}
+table tr:nth-child(odd) {background: #FFF}
+</style>
+
 This IG is a demo to analyse some vital-signs profiles from different FHIR core specifications (in different countries).
 Therefore this guide focuses on the first following three.
 The others are mentioned for completeness:
@@ -24,12 +30,29 @@ The others are mentioned for completeness:
 > Good examples are body weight and height.
 > Others, like blood pressure, contain a lot of different measurements, for example doing some excercising,
 > so that only a subset can be considered a vital sign.
-> <red>Therefore, a different profile hierarchy must be established! But this is another discussion.</red>
+>
+> Therefore, a different profile hierarchy must be established! But this is another discussion 
+> for which a new FHIR Tracker has been created: (FHIR-50261)[https://jira.hl7.org/browse/FHIR-50261].
+
+Currently, it is unclear what and why a certain item should be added to the vital signs guide,
+or whether is is an information item so that is an indication of life.
+
+The idea of the original vital sign guide falls into two distinct categories:
+
+| Idea | Purpose |
+| --- | --- |
+| vital sign | information about the living status |
+| panel | dashboard of common items |
+
+> Therefore, reading a vital sign guide will probably be done with different expectations.
+> That will lead to discussions without a clear decision.
+
+So, the panel is the collection of vital sign eligible measurements.
+Some - or some specialisations thereof - fall into the original vital sign definition as indicated in the next drawing:
 
 ![Process](vitalsigns.png){:width="600px"}
 <br clear="all"/>  
 
-So, the panel is the collection of vital sign eligible measurements.
 In other words, for example, not all possible blood pressure measurements are good to express a vital sign.
 For example, 24h or 1w average measurements are also bp values, so is under exertion, but not good for vital signs.
 Therefore, they denote a subset of all possible bp measurements:
